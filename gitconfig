@@ -1,0 +1,5 @@
+[user]
+	email = james@jamesvandeven.com
+	name = James
+[credential]
+	helper = store
