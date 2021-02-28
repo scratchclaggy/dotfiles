@@ -10,4 +10,6 @@ Config files for Ubuntu
 - On the next git clone use your token instead of a password
 
 ## Neovim Config
+- Install vim-plug
 - Use ':PlugInstall' to install all of your plugins
+- Install all required coc-plugins
