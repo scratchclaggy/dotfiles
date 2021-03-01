@@ -1,2 +1,2 @@
-./nvim/undo
-.nvim/autoload
+./nvim/undo/*
+.nvim/autoload/plugged/*
