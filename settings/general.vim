@@ -32,4 +32,6 @@ set clipboard=unnamed                   " Copy paste between vim and everything 
 set shortmess+=I                        " Disable startup message
 set ignorecase                          " Case insensitive search
 set smartcase                           " Case sensitive search if mixed cash
+set mouse+=a
+set nostartofline
 
