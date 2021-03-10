@@ -24,4 +24,6 @@ Plug 'tpope/vim-commentary'
 " Status bar
 Plug 'vim-airline/vim-airline'
 
+" Snippets
+Plug 'honza/vim-snippets'
 call plug#end()
