@@ -1,4 +1,5 @@
+// Coc Config
 {
-    // Coc Config
-    "html.autoClosingTags": true
+    // Snippets
+    "snippets.snipmate.enable": false
 }
