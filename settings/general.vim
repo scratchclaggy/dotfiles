@@ -3,6 +3,7 @@ let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
 colorscheme dracula	            		" Set colorscheme to dracula
+let g:dracula_italic = 0                " Disable italics
 set cursorline                          " Highlight the current line the cursor is over
 set nowrap                              " Display long lines as just one line
 set pumheight=10                        " Makes popup menu smaller
@@ -32,6 +33,6 @@ set clipboard=unnamed                   " Copy paste between vim and everything 
 set shortmess+=I                        " Disable startup message
 set ignorecase                          " Case insensitive search
 set smartcase                           " Case sensitive search if mixed cash
-set mouse+=a
-set nostartofline
+set mouse+=a                            " Enable mouse support
+set nostartofline                       " Keep cursor position when changing active buffer 
 

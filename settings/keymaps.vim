@@ -9,7 +9,7 @@ nnoremap <leader>d :bd<CR>
 nnoremap <silent> <leader>w :w<CR>
 
 " Select all
-nnoremap <leader>sa ggvG$
+nnoremap <leader>sa gg0vG$
 
 " TAB in general mode will move to text buffer
 " SHIFT-TAB will go back

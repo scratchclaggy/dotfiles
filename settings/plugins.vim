@@ -6,6 +6,9 @@ Plug 'dracula/vim'
 " Color sorted CSVs
 Plug 'mechatroner/rainbow_csv'
 
+" Color highlighter
+Plug 'ap/vim-css-color'
+
 " Completion and intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
