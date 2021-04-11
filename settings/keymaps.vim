@@ -3,7 +3,7 @@ nnoremap <leader>v :e $MYVIMRC<CR>
 nnoremap <leader>so :so ~/.config/nvim/init.vim<CR>
 
 " Close the current buffer
-nnoremap <leader>d :bd<CR>
+nnoremap <silent> <leader>d :bd<CR>
 
 " Save current buffer
 nnoremap <silent> <leader>w :w<CR>
@@ -31,6 +31,12 @@ nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
+
+" Toggle paste mode
+nnoremap <silent> <leader>sp :set paste!<CR>
+
+" Disable ex mode
+nnoremap Q <Nop>
 
 " Anki import formatting
 nnoremap <LEADER>j $F,a<lt>img src="<Esc>$a.png"><Esc>0yl:s/<C-r>0/_/g<CR>phxjA,
