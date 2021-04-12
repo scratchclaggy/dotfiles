@@ -1,5 +1,4 @@
-" Easily edit and source my vimrc
-nnoremap <leader>v :e $MYVIMRC<CR>
+" Easily source my vimrc
 nnoremap <leader>so :so ~/.config/nvim/init.vim<CR>
 
 " Close the current buffer

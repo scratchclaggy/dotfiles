@@ -18,8 +18,8 @@ Plug 'raimondi/delimitmate'
 " File Explorer
 Plug 'scrooloose/NERDTree'
 
-" Fuzzy finder
-Plug 'ctrlpvim/ctrlp.vim'
+" Fuzzy Finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Comments
 Plug 'tpope/vim-commentary'

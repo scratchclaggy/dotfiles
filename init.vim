@@ -7,7 +7,7 @@ source $HOME/.config/nvim/settings/filetype.vim
 " Individual plugin settings
 source $HOME/.config/nvim/settings/airline.vim
 source $HOME/.config/nvim/settings/coc.vim " $HOME/.config/nvim/coc-settings.json
-source $HOME/.config/nvim/settings/ctrlp.vim
+source $HOME/.config/nvim/settings/fzf.vim
 source $HOME/.config/nvim/settings/delimitmate.vim
 
 " Mappings
