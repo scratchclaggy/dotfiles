@@ -127,7 +127,7 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/doc/fzf/examples/completion.bash
 
 # Set fzf to use fd
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="fd . $CWD"
+export FZF_DEFAULT_COMMAND="fd . $CWD"
+export FZF_CTRL_T_COMMAND="fd . $HOME"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 

@@ -24,6 +24,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Comments
 Plug 'tpope/vim-commentary'
 
+" Make and run
+Plug 'tpope/vim-dispatch'
+
 " Status bar
 Plug 'vim-airline/vim-airline'
 
