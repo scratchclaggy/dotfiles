@@ -27,6 +27,9 @@ Plug 'tpope/vim-commentary'
 " Make and run
 Plug 'tpope/vim-dispatch'
 
+" Git integration
+Plug 'tpope/vim-fugitive'
+
 " Status bar
 Plug 'vim-airline/vim-airline'
 
