@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_6='/home'
+let g:netrw_dirhist_5='/home/james'
+let g:netrw_dirhist_4='/home/james/cits3403-project'
+let g:netrw_dirhist_3='/home/james/cits3403-project/bootstrap'
+let g:netrw_dirhist_2='/home/james/cits3403-project/bootstrap/scss'
+let g:netrw_dirhist_1='/home/james/cits3403-project'
+let g:netrw_dirhist_0='/home/james/cits3403-project/flaskr'
+let g:netrw_dirhist_9='/home/james/cits3403-project/flaskr/templates'
+let g:netrw_dirhist_8='/home/james/cits3403-project/flaskr/templates/home'
