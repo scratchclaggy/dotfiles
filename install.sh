@@ -19,11 +19,11 @@ npm i -g yarn
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install Fzf and ripgrep
-sudo apat install -y fzf
-sudo apat install -y ripgrep
+sudo apt install -y fzf
+sudo apt install -y ripgrep
 
 # Install fd
-sudo apat install -y fd-find
+sudo apt install -y fd-find
 mkdir -p ~/.local/bin
 sudo ln -s $(which fdfind) ~/.local/bin/fd
 
@@ -33,6 +33,5 @@ sudo ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
 sudo ln -s ~/.dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 sudo ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 sudo ln -s ~/.dotfiles/fdignore ~/.fdignore
-sudo ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
-sudo ln -s ~/.dotfiles/settings ~/.config/nvim/settings
+sudo ln -s ~/.dotfiles/nvim ~/.config/nvim
 
