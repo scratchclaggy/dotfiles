@@ -136,3 +136,4 @@ export FZF_DEFAULT_COMMAND="fd . $CWD"
 export FZF_CTRL_T_COMMAND="fd . $HOME"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
+export FLASK_TEST_WEBDRIVER_HEADLESS=true

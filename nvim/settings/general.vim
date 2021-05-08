@@ -2,7 +2,6 @@
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
-set filetype
 colorscheme dracula	            		" Set colorscheme to dracula
 let g:dracula_italic = 0                " Disable italics
 set cursorline                          " Highlight the current line the cursor is over
