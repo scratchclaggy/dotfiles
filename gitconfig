@@ -5,3 +5,8 @@
 	helper = store
 [core]
 	editor = nvim
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
