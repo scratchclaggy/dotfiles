@@ -39,4 +39,7 @@ Plug 'honza/vim-snippets'
 " Web filetype formatting
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" Smooth scrolling
+Plug 'psliwka/vim-smoothie'
+
 call plug#end()
