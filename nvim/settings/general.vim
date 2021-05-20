@@ -2,12 +2,9 @@
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
-colorscheme dracula	            		" Set colorscheme to dracula
-let g:dracula_italic = 0                " Disable italics
 set cursorline                          " Highlight the current line the cursor is over
 set nowrap                              " Display long lines as just one line
 set pumheight=10                        " Makes popup menu smaller
-set cmdheight=2                         " More space for displaying messages
 set number	                        	" Line numbers
 set relativenumber	            		" Relative numbers
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
