@@ -7,4 +7,6 @@ alias gs='git status'
 
 alias exe='explorer.exe .'
 
+alias python=python3
+
 alias 3403='~/cits3403-project/scripts/run_application.sh'

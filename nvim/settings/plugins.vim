@@ -39,4 +39,7 @@ Plug 'honza/vim-snippets'
 " Web filetype formatting
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" JS Support
+Plug 'pangloss/vim-javascript'
+
 call plug#end()
