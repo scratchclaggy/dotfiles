@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Dracula colour scheme
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula-vim'}
 
 " Color sorted CSVs
 Plug 'mechatroner/rainbow_csv'
@@ -20,6 +20,7 @@ Plug 'scrooloose/NERDTree'
 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Comments
 Plug 'tpope/vim-commentary'

@@ -1,4 +1,4 @@
-" Easily source my vimrc
+" Easily source config
 nnoremap <leader>so :so ~/.config/nvim/init.vim<CR>
 
 " Close the current buffer
@@ -37,5 +37,13 @@ nnoremap <silent> <leader>sp :set paste!<CR>
 " Disable ex mode
 nnoremap Q <Nop>
 
-" Anki import formatting
-nnoremap <LEADER>j $F,a<lt>img src="<Esc>$a.png"><Esc>0yl:s/<C-r>0/_/g<CR>phxjA,
+" Plugins
+
+" Fugitive
+nnoremap <silent> <leader>g :vertical Git<CR>
+
+" Invoke fzf
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>v :Files ~/.dotfiles<CR>
+nnoremap <leader>r :Rg 
+

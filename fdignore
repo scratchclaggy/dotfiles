@@ -1,2 +1,2 @@
-/qmk_firmware/
-!/.dotfiles/
+.git
+node_modules

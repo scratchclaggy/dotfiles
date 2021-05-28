@@ -1,0 +1,15 @@
+format = "$git_branch$git_status$directory$character"
+
+[character]
+success_symbol = '[\\>](#50fa7b)'
+
+[directory]
+style = '#bd93f9'
+truncate_to_repo = true
+
+[git_branch]
+format = '[$branch $symbol](#ff79c6)'
+#format = '[\[$branch\] ](#ff79c6)'
+
+[git_status]
+style = '#ff79c6'

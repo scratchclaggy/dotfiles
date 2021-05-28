@@ -1,3 +1,3 @@
 " Dracula
-" let g:dracula_italic = 1                " Disable italics
+" let g:dracula_italic = 0                " Disable italics
 colorscheme dracula

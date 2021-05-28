@@ -2,11 +2,12 @@
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
+set termguicolors                       " Use 24 bit colors
 set cursorline                          " Highlight the current line the cursor is over
 set nowrap                              " Display long lines as just one line
 set pumheight=10                        " Makes popup menu smaller
-set number	                        	" Line numbers
-set relativenumber	            		" Relative numbers
+set number	                          	" Line numbers
+set relativenumber 	            		" Relative numbers
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nohlsearch                          " Remove highlights after search completed
 set scrolloff=8                         " Start scrolling before the first/last visible line
