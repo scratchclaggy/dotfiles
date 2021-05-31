@@ -26,4 +26,4 @@ set PATH $HOME/go/bin $PATH
 set PATH /usr/local/go/bin $PATH
 
 # Enable Starship prompt
-starship init fish | source
+# starship init fish | source
