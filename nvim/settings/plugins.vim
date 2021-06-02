@@ -10,7 +10,13 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'ap/vim-css-color'
 
 " Completion and intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Native LSP
+Plug 'neovim/nvim-lspconfig'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " Auto surround with parentheses, braces, etc.
 Plug 'raimondi/delimitmate'
@@ -38,7 +44,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'honza/vim-snippets'
 
 " Web filetype formatting
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " JS Support
 Plug 'pangloss/vim-javascript'

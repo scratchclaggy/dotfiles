@@ -12,6 +12,9 @@ alias python python3
 alias v nvim
 alias vim nvim
 
+# Editor
+set -x EDITOR /usr/bin/nvim
+
 # FZF
 set -x FZF_DEFAULT_COMMAND 'fd . $CWD -H -t f'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
