@@ -3,11 +3,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Dracula colour scheme
 Plug 'dracula/vim', { 'as': 'dracula-vim'}
 
+" Nvim lua shortcommands
+Plug 'nvim-lua/plenary.nvim'
+
 " Color sorted CSVs
 Plug 'mechatroner/rainbow_csv'
 
 " Color highlighter
-Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
+
+" Auto completion
+Plug 'hrsh7th/nvim-compe'
 
 " Completion and intellisense
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,6 +23,7 @@ Plug 'neovim/nvim-lspconfig'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/playground'
 
 " Auto surround with parentheses, braces, etc.
 Plug 'raimondi/delimitmate'
@@ -43,10 +50,13 @@ Plug 'vim-airline/vim-airline'
 " Snippets
 Plug 'honza/vim-snippets'
 
-" Web filetype formatting
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" HTML smart snippets
+Plug 'mattn/emmet-vim'
 
-" JS Support
-Plug 'pangloss/vim-javascript'
+" Git commit navigation
+Plug 'junegunn/gv.vim'
+
+" Git changes
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()

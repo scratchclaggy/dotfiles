@@ -2,7 +2,6 @@
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
-set termguicolors                       " Use 24 bit colors
 set cursorline                          " Highlight the current line the cursor is over
 set nowrap                              " Display long lines as just one line
 set pumheight=10                        " Makes popup menu smaller
@@ -34,3 +33,4 @@ set smartcase                           " Case sensitive search if mixed cash
 set mouse+=a                            " Enable mouse support
 set nostartofline                       " Keep cursor position when changing active buffer 
 
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()

@@ -7,6 +7,9 @@ nnoremap <silent> <leader>d :bd<CR>
 " Save current buffer
 nnoremap <silent> <leader>w :w<CR>
 
+" Open netrw
+nnoremap <silent> <leader>e :Ex<CR>
+
 " Select all
 nnoremap <leader>sa gg0vG$
 
@@ -42,8 +45,15 @@ nnoremap Q <Nop>
 " Fugitive
 nnoremap <silent> <leader>g :vertical Git<CR>
 
-" Invoke fzf
+" fzf
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>v :Files ~/.dotfiles<CR>
 nnoremap <leader>r :Rg 
+
+" nvim-compe
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
