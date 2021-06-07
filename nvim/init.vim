@@ -13,11 +13,11 @@ source $HOME/.config/nvim/settings/colorscheme.vim
 
 " Individual plugin settings
 source $HOME/.config/nvim/settings/airline.vim
-" source $HOME/.config/nvim/settings/coc.vim " $HOME/.config/nvim/coc-settings.json
 source $HOME/.config/nvim/settings/delimitmate.vim
 luafile $HOME/.config/nvim/settings/gitsigns.lua
 luafile $HOME/.config/nvim/settings/nvim-colorizer.lua
 luafile $HOME/.config/nvim/settings/nvim-compe.lua
+source $HOME/.config/nvim/settings/vim-vsnip.vim
 
 " LSP
 luafile $HOME/.config/nvim/settings/lsp_config.lua

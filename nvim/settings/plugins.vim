@@ -15,9 +15,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Auto completion
 Plug 'hrsh7th/nvim-compe'
 
-" Completion and intellisense
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Native LSP
 Plug 'neovim/nvim-lspconfig'
 
@@ -27,9 +24,6 @@ Plug 'nvim-treesitter/playground'
 
 " Auto surround with parentheses, braces, etc.
 Plug 'raimondi/delimitmate'
-
-" File Explorer
-Plug 'scrooloose/NERDTree'
 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -48,7 +42,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
 " Snippets
-Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 
 " HTML smart snippets
 Plug 'mattn/emmet-vim'

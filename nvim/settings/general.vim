@@ -27,7 +27,7 @@ set undofile                            " Undo history
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set clipboard=unnamed                   " Copy paste between vim and everything else
-set shortmess+=I                        " Disable startup message
+set shortmess+=Ic                        " Disable startup message
 set ignorecase                          " Case insensitive search
 set smartcase                           " Case sensitive search if mixed cash
 set mouse+=a                            " Enable mouse support
