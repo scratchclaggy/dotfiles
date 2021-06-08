@@ -44,7 +44,6 @@ Plug 'vim-airline/vim-airline'
 " Snippets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'rafamadriz/friendly-snippets'
 
 " HTML smart snippets
 Plug 'mattn/emmet-vim'

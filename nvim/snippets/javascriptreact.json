@@ -1,0 +1,7 @@
+{
+    "React Component": {
+    "prefix": "rc",
+    "body": "import React from 'react';\n\nconst ${TM_FILENAME_BASE} = ($1) => {\n\treturn (\n\t\t<div>\n\t\t\t$0\n\t\t</div>\n\t);\n};\n\nexport default ${TM_FILENAME_BASE};",
+    "description": "Creates a React component class"
+  }
+}
