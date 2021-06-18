@@ -1,7 +1,12 @@
 {
     "Import from": {
-    "prefix": "if",
-    "body": "import $1 from '$2';",
-    "description": "Import a file"
-  }
+        "prefix": "if",
+        "body": "import $1 from '$2';",
+        "description": "Import a file"
+    },
+    "Console Log": {
+        "prefix": "cl",
+        "body": "console.log($0)",
+        "description": "Make a console log"
+    }
 }
