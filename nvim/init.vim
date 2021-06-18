@@ -14,7 +14,6 @@ source $HOME/.config/nvim/settings/colorscheme.vim
 " Individual plugin settings
 source $HOME/.config/nvim/settings/airline.vim
 source $HOME/.config/nvim/settings/delimitmate.vim
-luafile $HOME/.config/nvim/settings/gitsigns.lua
 luafile $HOME/.config/nvim/settings/nvim-colorizer.lua
 luafile $HOME/.config/nvim/settings/nvim-compe.lua
 source $HOME/.config/nvim/settings/vim-vsnip.vim
@@ -32,4 +31,6 @@ source $HOME/.config/nvim/settings/keymaps.vim
 source $HOME/.config/nvim/ftplugin/css.vim
 source $HOME/.config/nvim/ftplugin/help.vim
 source $HOME/.config/nvim/ftplugin/html.vim
+
+
 

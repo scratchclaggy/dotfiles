@@ -15,7 +15,7 @@ nnoremap <leader>sa gg0vG$
 
 " TAB in general mode will move to text buffer
 " SHIFT-TAB will go back
-nnoremap <silent> <TAB> :bnext<CR>
+nnoremap <silent> <TAB> :b#<CR>
 nnoremap <silent> <S-TAB> :bprevious<CR>
 
 " Better tabbing
@@ -50,6 +50,7 @@ nnoremap <silent> <leader>g :vertical Git<CR>
 
 " fzf
 nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>v :Files ~/.dotfiles<CR>
 nnoremap <leader>r :Rg 
 

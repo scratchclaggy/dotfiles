@@ -4,6 +4,7 @@ let g:mapleader = "\<Space>"
 syntax enable                           " Enables syntax highlighing
 set cursorline                          " Highlight the current line the cursor is over
 set nowrap                              " Display long lines as just one line
+set breakindent                         " If wrap is set, indented lines maintain indent
 set pumheight=10                        " Makes popup menu smaller
 set number	                          	" Line numbers
 set relativenumber 	            		" Relative numbers
@@ -33,4 +34,4 @@ set smartcase                           " Case sensitive search if mixed cash
 set mouse+=a                            " Enable mouse support
 set nostartofline                       " Keep cursor position when changing active buffer 
 
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+

@@ -32,6 +32,15 @@ Plug 'junegunn/fzf.vim'
 " Comments
 Plug 'tpope/vim-commentary'
 
+" Surrounds
+Plug 'tpope/vim-surround'
+
+" Keybinds
+Plug 'tpope/vim-unimpaired'
+
+" Session management
+Plug 'tpope/vim-obsession'
+
 " Make and run
 Plug 'tpope/vim-dispatch'
 
@@ -50,8 +59,5 @@ Plug 'mattn/emmet-vim'
 
 " Git commit navigation
 Plug 'junegunn/gv.vim'
-
-" Git changes
-Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
