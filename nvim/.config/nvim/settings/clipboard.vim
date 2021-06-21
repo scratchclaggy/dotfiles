@@ -1,7 +1,6 @@
-" WSL yank support
-" this pushes any yanks from vim into the windows clipboard
-" but does not push from windows into vim
- 
+" WSL copy / paste support
+
+set clipboard+=unnamed
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
 if executable(s:clip)
     augroup WSLYank

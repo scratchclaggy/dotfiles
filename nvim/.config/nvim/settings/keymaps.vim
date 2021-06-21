@@ -46,11 +46,11 @@ nnoremap Q <Nop>
 let g:user_emmet_leader_key=','
 
 " Fugitive
-nnoremap <silent> <leader>g :vertical Git<CR>
+nnoremap <silent> <leader>g :tab Git<CR>
 
 " fzf
 nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader><space> :Buffers<CR>
 nnoremap <silent> <leader>v :Files ~/.dotfiles<CR>
 nnoremap <leader>r :Rg 
 

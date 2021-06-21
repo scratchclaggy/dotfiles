@@ -1,0 +1,10 @@
+[user]
+	name = James van de Ven
+	email = james@jamesvandeven.com
+[core]
+	editor = nvim
+	pager = bat
+	excludesfile = /home/james/.config/git/gitignore_global
+	autocrlf = input
+[credential]
+	helper = store

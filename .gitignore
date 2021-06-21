@@ -1,4 +1,9 @@
 Session.vim
 
-nvim/autoload/
-nvim/undo
+git/.config/git/credentials
+
+nvim/.config/nvim/autoload
+nvim/.config/nvim/undo
+
+zsh/.config/zsh/plugins
+zsh/.config/zsh/.zcompdump

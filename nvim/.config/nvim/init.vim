@@ -20,6 +20,7 @@ source $HOME/.config/nvim/settings/vim-vsnip.vim
 
 " LSP
 luafile $HOME/.config/nvim/settings/lsp_config.lua
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 
 " Treesitter
 luafile $HOME/.config/nvim/settings/treesitter.lua
