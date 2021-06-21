@@ -2,6 +2,8 @@ Session.vim
 
 git/.config/git/credentials
 
+gh/.config/gh/hosts.yml
+
 nvim/.config/nvim/autoload
 nvim/.config/nvim/undo
 
