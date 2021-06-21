@@ -1,0 +1,22 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$conda\
+$jobs\
+$status
+$character
+"""
+
+[character]
+error_symbol = "[!](bold red)"
+success_symbol = "[>](bold green)"
+vicmd_symbol = "[N](bold #bd93f9)"
+
+[directory]
+truncation_symbol = "…/"

@@ -1,5 +1,2 @@
 !.gitignore
 node_modules/
-"$CWD"/.git
-npm
-README.md

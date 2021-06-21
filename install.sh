@@ -27,11 +27,3 @@ sudo apt install -y fd-find
 mkdir -p ~/.local/bin
 sudo ln -s $(which fdfind) ~/.local/bin/fd
 
-# Set-up symlinks
-sudo ln -s ~/.dotfiles/bashrc ~/.bashrc
-sudo ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
-sudo ln -s ~/.dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
-sudo ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-sudo ln -s ~/.dotfiles/fdignore ~/.fdignore
-sudo ln -s ~/.dotfiles/nvim ~/.config/nvim
-

@@ -1,6 +1,9 @@
-export BAT_CONFIG_PATH=$XDG_CONFIG_HOME/bat.conf
+export BAT_CONFIG_PATH=$XDG_CONFIG_HOME/bat/batrc
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export GOPATH=$XDG_DATA_HOME/go
 export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export PAGER=bat
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/config.toml

@@ -1,12 +1,5 @@
-Install script:
-* Install Fish
-* Install Rust, Go, Node
-* Install Rust utils (exa, bottom, ripgrep, fd, etc)
-* Install Neovim
+Programs:
+* Need to list which programs need to be installed, where they can be installed from
 
 Need to set up fd after installation
 `ln -s $(which fdfind) ~/.local/bin/fd`
-
-Config Ideas:
-* Neovim 0.5 w/ native-lsp and tree-sitter (remove coc)
-* Command prompt
