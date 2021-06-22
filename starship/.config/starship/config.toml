@@ -9,9 +9,10 @@ $git_state\
 $git_status\
 $conda\
 $jobs\
-$status
-$character
-"""
+$status\
+$character"""
+
+add_newline = false
 
 [character]
 error_symbol = "[!](bold red)"
@@ -20,3 +21,4 @@ vicmd_symbol = "[N](bold #bd93f9)"
 
 [directory]
 truncation_symbol = "…/"
+truncate_to_repo = false

@@ -60,4 +60,7 @@ Plug 'mattn/emmet-vim'
 " Git commit navigation
 Plug 'junegunn/gv.vim'
 
+" Formatting tool
+Plug 'sbdchd/neoformat'
+
 call plug#end()
