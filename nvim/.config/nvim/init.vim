@@ -1,8 +1,3 @@
-" Set nvim to use sh
-if &shell =~# 'fish$'
-    set shell=sh
-endif
-
 " Plugin manager 
 source $HOME/.config/nvim/settings/plugins.vim
 
@@ -14,13 +9,13 @@ source $HOME/.config/nvim/settings/colorscheme.vim
 " Individual plugin settings
 source $HOME/.config/nvim/settings/airline.vim
 source $HOME/.config/nvim/settings/delimitmate.vim
+source $HOME/.config/nvim/settings/neoformat.vim
 luafile $HOME/.config/nvim/settings/nvim-colorizer.lua
 luafile $HOME/.config/nvim/settings/nvim-compe.lua
 source $HOME/.config/nvim/settings/vim-vsnip.vim
 
 " LSP
 luafile $HOME/.config/nvim/settings/lsp_config.lua
-autocmd BufWritePre * :Neoformat
 
 " Treesitter
 luafile $HOME/.config/nvim/settings/treesitter.lua
@@ -32,6 +27,4 @@ source $HOME/.config/nvim/settings/keymaps.vim
 source $HOME/.config/nvim/ftplugin/css.vim
 source $HOME/.config/nvim/ftplugin/help.vim
 source $HOME/.config/nvim/ftplugin/html.vim
-
-
 
