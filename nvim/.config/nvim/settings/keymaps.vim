@@ -13,6 +13,9 @@ nnoremap <silent> <leader>e :Ex<CR>
 " Select all
 nnoremap <leader>sa gg0vG$
 
+" Search and replace
+nnoremap <leader>sr :%s//g<left><left>
+
 " TAB in general mode will move to text buffer
 " SHIFT-TAB will go back
 nnoremap <silent> <TAB> :b#<CR>

@@ -22,3 +22,6 @@ vicmd_symbol = "[N](bold #bd93f9)"
 [directory]
 truncation_symbol = "…/"
 truncate_to_repo = false
+
+[git_branch]
+style = "bold #bd93f9"
