@@ -22,9 +22,3 @@ luafile $HOME/.config/nvim/settings/treesitter.lua
 
 " Mappings
 source $HOME/.config/nvim/settings/keymaps.vim
-
-" Filetype plugins
-source $HOME/.config/nvim/ftplugin/css.vim
-source $HOME/.config/nvim/ftplugin/help.vim
-source $HOME/.config/nvim/ftplugin/html.vim
-
