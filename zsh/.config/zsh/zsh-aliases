@@ -1,3 +1,4 @@
+alias arduino=arduino-cli
 alias c=clear
 alias deletus='rm -fr'
 alias ex='/mnt/c/Windows/explorer.exe .'
