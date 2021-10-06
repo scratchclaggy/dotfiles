@@ -1,3 +1,4 @@
+require("colorizer").setup {}
 require("mkdir")
 
 if vim.fn.has("wsl") == true then

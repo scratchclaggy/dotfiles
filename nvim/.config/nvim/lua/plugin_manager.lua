@@ -36,11 +36,17 @@ return require("packer").startup(
     -- Fuzzy Finder
     use {"nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim"}
 
+    -- Color
+    use "norcalli/nvim-colorizer.lua"
+
     -- Colorscheme
     use {"dracula/vim", as = "dracula"}
 
     -- Icon
     use "kyazdani42/nvim-web-devicons"
+
+    -- Spellcheck
+    use "lewis6991/spellsitter.nvim"
 
     -- Utility
     use "famiu/bufdelete.nvim"
@@ -53,6 +59,9 @@ return require("packer").startup(
     -- Statusline
     use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
+    -- Indent
+    use "lukas-reineke/indent-blankline.nvim"
+
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
@@ -64,6 +73,7 @@ return require("packer").startup(
 
     -- Comment
     use "tpope/vim-commentary"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
 
     -- Formatting
     use "mhartington/formatter.nvim"

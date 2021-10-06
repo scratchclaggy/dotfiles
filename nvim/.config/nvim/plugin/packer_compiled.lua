@@ -85,6 +85,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
+  },
   dracula = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/dracula"
@@ -92,6 +104,22 @@ _G.packer_plugins = {
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/formatter.nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
+  ["galaxyline.nvim"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
@@ -109,6 +137,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -121,6 +153,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -128,6 +168,10 @@ _G.packer_plugins = {
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/james/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["spellsitter.nvim"] = {
+    loaded = true,
+    path = "/home/james/.local/share/nvim/site/pack/packer/start/spellsitter.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
