@@ -4,17 +4,7 @@ nest.applyKeymaps {
   {
     "<leader>",
     {
-      {"ca", "<cmd>Lspsaga code_action<cr>"},
-      {"ca", "<cmd>Lspsaga range_code_action<cr>", mode = "v"},
-      {"d", ":Bdelete<cr>"},
-      {
-        "e",
-        {
-          {"n", "<cmd>Lspsaga diagnostic_jump_next<CR>"},
-          {"p", "<cmd>Lspsaga diagnostic_jump_prev<CR>"},
-          {"r", "<cmd>Lspsaga show_line_diagnostics<cr>"}
-        }
-      },
+      {"e", "<cmd>Trouble<cr>"},
       {
         "f",
         {
@@ -24,12 +14,18 @@ nest.applyKeymaps {
           {"m", "<cmd>Format<cr>"}
         }
       },
-      {"g", ":tab G<cr>"},
+      {"g", "<cmd>tab G<cr>"},
       {
-        "sa",
-        "gg0vG$"
+        "s",
+        {
+          {"a", "gg0vG$"},
+          {"h", "<cmd>FocusSplitLeft<cr>"},
+          {"j", "<cmd>FocusSplitDown<cr>"},
+          {"k", "<cmd>FocusSplitUp<cr>"},
+          {"l", "<cmd>FocusSplitRight<cr>"}
+        }
       },
-      {"rn", "<cmd>Lspsaga rename<cr>"},
+      {"rn", "<cmd>lua vim.lsp.buf.rename()<cr>"},
       {"qn", "<cmd>wqa<cr>"},
       {
         "v",
@@ -37,25 +33,26 @@ nest.applyKeymaps {
           {"s", "<cmd>vs<cr>"}
         }
       },
-      {"w", "<cmd>w<cr>"}
+      {"w", "<cmd>w<cr>"},
+      {"x", "<c-w>q"}
     }
   },
   {
     "gd",
-    "<cmd>Lspsaga preview_definition<CR>"
+    "<cmd>lua vim.lsp.buf.definition()<CR>"
   },
   {
-    "gh",
-    "<cmd>Lspsaga lsp_finder<CR>"
+    "gD",
+    "<cmd>lua vim.lsp.buf.declaration()<CR>"
   },
   {
-    "gs",
-    "<cmd>Lspsaga signature_help<CR>"
+    "gi",
+    "<cmd>lua vim.lsp.buf.implementation()<CR>"
   },
-  {"K", "<cmd>Lspsaga hover_doc<cr>"},
+  {"K", "<cmd>lua vim.lsp.buf.hover()<cr>"},
   {"Q", "<nop>"},
-  {"<tab>", ":b#<cr>"},
-  {"<s-tab>", ":bprevious<cr>"},
+  {"<tab>", "<cmd>b#<cr>"},
+  {"<s-tab>", "<cmd>bprevious<cr>"},
   {"<", "<gv", mode = "v"},
   {">", ">gv", mode = "v"},
   {

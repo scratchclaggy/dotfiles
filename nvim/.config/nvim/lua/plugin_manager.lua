@@ -14,6 +14,10 @@ return require("packer").startup(
     -- LSP
     use "neovim/nvim-lspconfig"
     use {"glepnir/lspsaga.nvim", requires = "neovim/nvim-lspconfig"}
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
 
     -- Completion
     use {"hrsh7th/cmp-buffer", requires = "hrsh7th/nvim-cmp"}
@@ -56,9 +60,7 @@ return require("packer").startup(
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim"
-      }
+      requires = "nvim-lua/plenary.nvim"
     }
     use "tpope/vim-fugitive"
 
@@ -73,5 +75,8 @@ return require("packer").startup(
 
     -- Keybinding
     use "LionC/nest.nvim"
+
+    -- Split and Window
+    use "beauwilliams/focus.nvim"
   end
 )

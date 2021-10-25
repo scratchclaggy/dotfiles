@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local servers = {"ccls"}
+local servers = {"ccls", "pyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -7,13 +7,4 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require("lspsaga").init_lsp_saga {
-  finder_action_keys = {
-    open = "<cr>",
-    quit = {"q", "<esc>"},
-    scroll_down = "<C-d>",
-    scroll_up = "<C-u>"
-  },
-  max_preview_lines = 50,
-  rename_prompt_prefix = ">"
-}
+require("trouble").setup {}

@@ -21,7 +21,11 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 
 # Enable FZF key bindings
-# zvm_after_init_commands+=('[ -f "$ZDOTDIR/zsh-fzf" ] && source "$ZDOTDIR/zsh-fzf"')
+zvm_after_init_commands+=('[ -f "$ZDOTDIR/zsh-fzf" ] && source "$ZDOTDIR/zsh-fzf"')
 
 # Use starship prompt
 eval "$(starship init zsh)"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
