@@ -20,12 +20,12 @@ return require("packer").startup(
     }
 
     -- Completion
-    use {"hrsh7th/cmp-buffer", requires = "hrsh7th/nvim-cmp"}
-    use {"hrsh7th/cmp-nvim-lsp", requires = "hrsh7th/nvim-cmp"}
-    use {"hrsh7th/cmp-nvim-lua", requires = "hrsh7th/nvim-cmp"}
-    use {"hrsh7th/cmp-path", requires = "hrsh7th/nvim-cmp"}
-    use {"hrsh7th/cmp-vsnip", requires = "hrsh7th/nvim-cmp"}
     use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-vsnip"
 
     -- Syntax
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
@@ -40,6 +40,9 @@ return require("packer").startup(
     -- Fuzzy Finder
     use {"nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim"}
 
+    -- Color
+    use "norcalli/nvim-colorizer.lua"
+
     -- Colorscheme
     use {"dracula/vim", as = "dracula"}
 
@@ -47,7 +50,6 @@ return require("packer").startup(
     use "kyazdani42/nvim-web-devicons"
 
     -- Utility
-    use "famiu/bufdelete.nvim"
     use "jghauser/mkdir.nvim"
     use "tpope/vim-unimpaired"
 
@@ -56,6 +58,9 @@ return require("packer").startup(
 
     -- Statusline
     use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+
+    -- Indent
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Git
     use {
@@ -66,6 +71,7 @@ return require("packer").startup(
 
     -- Comment
     use "tpope/vim-commentary"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
 
     -- Formatting
     use "mhartington/formatter.nvim"
