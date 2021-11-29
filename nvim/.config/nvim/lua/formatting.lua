@@ -21,6 +21,16 @@ require("formatter").setup(
           }
         end
       },
+      arduino = {
+        -- clang-format
+        function()
+          return {
+            exe = "clang-format",
+            args = {[[-style="{BasedOnStyle: llvm, IndentWidth: 4}"]]},
+            stdin = true
+          }
+        end
+      },
       lua = {
         -- luafmt
         function()
