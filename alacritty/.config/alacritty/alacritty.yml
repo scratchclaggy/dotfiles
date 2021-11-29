@@ -6,20 +6,20 @@ background_opacity: 0.95
 
 font:
   normal:
-    family: "Cascadia Mono PL"
+    family: "Cascadia Code PL"
     style: Regular
   bold:
-    family: "Cascadia Mono PL"
+    family: "Cascadia Code PL"
     style: Bold
   italic:
-    family: "Cascadia Mono PL"
+    family: "Cascadia Code PL"
     style: Italic
   bold_italic:
-    family: "Cascadia Mono PL"
+    family: "Cascadia Code PL"
     style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 10.0
 
   # offset:
   #   x: 0
@@ -27,6 +27,9 @@ font:
   # glyph_offset:
   #   x: 0
   #   y: 0
+
+shell:
+  program: /bin/zsh
 
 window:
   padding:
@@ -36,7 +39,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 0
+  history: 10000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
