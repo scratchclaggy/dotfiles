@@ -57,7 +57,10 @@ return require("packer").startup(
     use "nvim-lua/plenary.nvim"
 
     -- Statusline
-    use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use {
+      "nvim-lualine/lualine.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
 
     -- Indent
     use "lukas-reineke/indent-blankline.nvim"

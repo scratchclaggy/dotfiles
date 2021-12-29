@@ -1,1 +1,1 @@
-require("galaxyline.themes.eviline")
+require("lualine").setup()
