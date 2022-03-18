@@ -1,14 +1,11 @@
 alias arduino=arduino-cli
 alias c=clear
 alias deletus='rm -fr'
-alias ex='/mnt/c/Windows/explorer.exe .'
+alias explorer='/mnt/c/Windows/explorer.exe .'
 alias g=git
 alias gs='git status'
 alias ll='exa -al'
 alias la='exa -1a'
 alias ls='exa'
 alias python=python3
-alias sesh='nvim -S Session.vim'
-alias vi='nvim'
-alias vim='nvim'
 alias '?'='echo $?'
