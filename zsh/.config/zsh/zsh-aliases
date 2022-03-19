@@ -2,6 +2,7 @@ alias arduino=arduino-cli
 alias c=clear
 alias deletus='rm -fr'
 alias explorer='/mnt/c/Windows/explorer.exe .'
+alias files='xdg-open'
 alias g=git
 alias gs='git status'
 alias ll='exa -al'
