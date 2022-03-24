@@ -26,6 +26,8 @@ zvm_after_init_commands+=('[ -f "$ZDOTDIR/zsh-fzf" ] && source "$ZDOTDIR/zsh-fzf
 # Use starship prompt
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+if [[ -d "$HOME/.config/nvm" ]]; then
+    export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
 
