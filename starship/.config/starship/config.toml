@@ -8,6 +8,7 @@ $git_commit\
 $git_state\
 $git_status\
 $conda\
+$python\
 $jobs\
 $status\
 $character"""
@@ -25,3 +26,7 @@ truncate_to_repo = false
 
 [git_branch]
 style = "bold #bd93f9"
+
+[python]
+format = '[(\($virtualenv\) )]($style)'
+style = 'bold yellow'

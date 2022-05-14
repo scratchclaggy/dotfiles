@@ -26,6 +26,6 @@ zvm_after_init_commands+=('[ -f "$ZDOTDIR/zsh-fzf" ] && source "$ZDOTDIR/zsh-fzf
 # Use starship prompt
 eval "$(starship init zsh)"
 
+# Enable NVM
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-

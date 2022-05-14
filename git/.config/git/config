@@ -3,7 +3,7 @@
 	email = hello@jamesvandeven.com
 [core]
 	editor = nvim
-	pager = bat
+	pager = less
 	excludesfile = $HOME/.config/git/gitignore_global
 	autocrlf = input
 [alias]
