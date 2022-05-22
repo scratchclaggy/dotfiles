@@ -33,7 +33,7 @@ nest.applyKeymaps({
 			{
 				"f",
 				{
-					{ "f", "<cmd>Telescope find_files<cr>" },
+					{ "f", "<cmd>Telescope git_files<cr>" },
 					{ "h", "<cmd>Telescope help_tags<cr>" },
 					{ "j", "<cmd>Telescope buffers<cr>" },
 					{ "l", "<cmd>Telescope live_grep<cr>" },
@@ -43,8 +43,9 @@ nest.applyKeymaps({
 			{
 				"g",
 				{
-					{ "g", "<cmd>tab G<cr>" },
-					{ "m", neogit.open },
+					{ "d", ":Gvdiffsplit ", options = { silent = false } },
+					{ "f", "<cmd>tab G<cr>" },
+					{ "g", neogit.open },
 				},
 			},
 			{
@@ -58,9 +59,9 @@ nest.applyKeymaps({
 				},
 			},
 			{ "rn", vim.lsp.buf.rename },
+			{ "qq", "<cmd>q<cr>" },
 			{ "qn", "<cmd>wqa<cr>" },
 			{ "w", "<cmd>w<cr>" },
-			{ "x", "<c-w>q" },
 		},
 	},
 	{ "yo", {

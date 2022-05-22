@@ -1,1 +1,1 @@
-require("focus").setup()
+require("focus").setup({ autoresize = false, signcolumn = false, 1 })
