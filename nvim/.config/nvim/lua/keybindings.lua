@@ -43,7 +43,6 @@ nest.applyKeymaps({
 			{
 				"g",
 				{
-					{ "b", gitsigns.toggle_current_line_blame },
 					{ "g", "<cmd>tab G<cr>" },
 					{ "m", neogit.open },
 				},
@@ -65,6 +64,7 @@ nest.applyKeymaps({
 		},
 	},
 	{ "yo", {
+		{ "b", gitsigns.toggle_current_line_blame },
 		{ "f", "<cmd>FocusToggle<cr>" },
 	} },
 	{ "gd", vim.lsp.buf.definition },
