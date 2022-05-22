@@ -22,10 +22,15 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Enable FZF key bindings
 zvm_after_init_commands+=('[ -f "$ZDOTDIR/zsh-fzf" ] && source "$ZDOTDIR/zsh-fzf"')
-
 # Use starship prompt
 eval "$(starship init zsh)"
 
 # Enable NVM
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Enable zoxide
+eval "$(zoxide init zsh)"
+
+# Enable thefuck
+eval $(thefuck --alias ugh)
