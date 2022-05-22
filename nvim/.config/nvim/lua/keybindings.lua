@@ -58,9 +58,11 @@ nest.applyKeymaps({
 					{ "l", "<cmd>FocusSplitRight<cr>" },
 				},
 			},
+			{ "q", {
+				{ "q", "<cmd>q<cr>" },
+				{ "n", "<cmd>wqa<cr>" },
+			} },
 			{ "rn", vim.lsp.buf.rename },
-			{ "qq", "<cmd>q<cr>" },
-			{ "qn", "<cmd>wqa<cr>" },
 			{ "w", "<cmd>w<cr>" },
 		},
 	},
