@@ -33,9 +33,9 @@ nest.applyKeymaps({
 			{
 				"f",
 				{
-					{ "f", "<cmd>Telescope git_files<cr>" },
+					{ "f", "<cmd>Telescope find_files<cr>" },
 					{ "h", "<cmd>Telescope help_tags<cr>" },
-					{ "j", "<cmd>Telescope buffers<cr>" },
+					{ "j", "<cmd>Telescope git_files<cr>" },
 					{ "l", "<cmd>Telescope live_grep<cr>" },
 					{ "m", vim.lsp.buf.formatting_sync },
 				},

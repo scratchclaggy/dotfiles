@@ -6,6 +6,7 @@ alias explorer='/mnt/c/Windows/explorer.exe .'
 alias files='xdg-open'
 alias g=git
 alias gs='git status'
+alias ks='kitty +kitten ssh'
 alias ll='exa -al'
 alias la='exa -1a'
 alias ls='exa'

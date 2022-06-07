@@ -36,7 +36,7 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.clang_format.with({
-			extra_args = { "--style", "{IndentWidth: 4}" },
+			extra_args = { "--style", "{BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}" },
 		}),
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.rustfmt,
