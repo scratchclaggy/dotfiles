@@ -68,6 +68,7 @@ nest.applyKeymaps({
 	},
 	{ "yo", {
 		{ "b", gitsigns.toggle_current_line_blame },
+		{ "d", gitsigns.toggle_deleted },
 		{ "f", "<cmd>FocusToggle<cr>" },
 	} },
 	{ "gd", vim.lsp.buf.definition },
