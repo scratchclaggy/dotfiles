@@ -9,6 +9,7 @@ $git_state\
 $git_status\
 $conda\
 $python\
+$nodejs\
 $jobs\
 $status\
 $character"""
@@ -26,6 +27,10 @@ truncate_to_repo = false
 
 [git_branch]
 style = "bold #bd93f9"
+
+[nodejs]
+format = '[($version )]($style)'
+style = 'bold yellow'
 
 [python]
 format = '[(\($virtualenv\) )]($style)'

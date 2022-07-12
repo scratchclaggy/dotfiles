@@ -12,3 +12,5 @@
 	co = checkout
     nb = checkout -b
 	st = status
+[init]
+	defaultBranch = main

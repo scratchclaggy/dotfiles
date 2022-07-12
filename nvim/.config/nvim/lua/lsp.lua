@@ -3,6 +3,7 @@ local servers = {
 	{ language = "bashls", formatting = false },
 	{ language = "clangd", formatting = false },
 	{ language = "gopls", formatting = false },
+	{ language = "prismals", formatting = true },
 	{ language = "pyright", formatting = false },
 	{ language = "rust_analyzer", formatting = false },
 	{ language = "tailwindcss", formatting = false },
@@ -43,3 +44,5 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 	},
 })
+
+require('trouble').setup()

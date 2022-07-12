@@ -1,6 +1,7 @@
 local gitsigns = require("gitsigns")
 local neogit = require("neogit")
 local nest = require("nest")
+local trouble = require("trouble")
 
 vim.g.yoinkIncludeDeleteOperations = 1
 
@@ -26,7 +27,7 @@ end
 
 nest.applyKeymaps({
 	{
-		"<leader>",
+		"<space>",
 		{
 			{ "bd", "<cmd>bd<cr>" },
 			{ "e", vim.diagnostic.open_float },
@@ -46,6 +47,18 @@ nest.applyKeymaps({
 					{ "d", ":Gvdiffsplit ", options = { silent = false } },
 					{ "f", "<cmd>tab G<cr>" },
 					{ "g", neogit.open },
+					{ "n", gitsigns.next_hunk },
+					{ "p", gitsigns.prev_hunk },
+				},
+			},
+			{
+				"l",
+				{
+					{ "d", "<cmd>TroubleToggle document_diagnostics<cr>" },
+					{ "f", "<cmd>TroubleToggle quickfix<cr>" },
+					{ "r", "<cmd>TroubleToggle lsp_references<cr>" },
+					{ "t", "<cmd>TroubleToggle<cr>" },
+					{ "w", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
 				},
 			},
 			{
@@ -66,11 +79,14 @@ nest.applyKeymaps({
 			{ "w", "<cmd>w<cr>" },
 		},
 	},
-	{ "yo", {
-		{ "b", gitsigns.toggle_current_line_blame },
-		{ "d", gitsigns.toggle_deleted },
-		{ "f", "<cmd>FocusToggle<cr>" },
-	} },
+	{
+		"yo",
+		{
+			{ "b", gitsigns.toggle_current_line_blame },
+			{ "d", gitsigns.toggle_deleted },
+			{ "f", "<cmd>FocusToggle<cr>" },
+		},
+	},
 	{ "gd", vim.lsp.buf.definition },
 	{ "gD", vim.lsp.buf.declaration },
 	{ "gi", vim.lsp.buf.implementation },
