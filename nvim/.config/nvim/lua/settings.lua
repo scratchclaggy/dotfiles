@@ -24,7 +24,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.startofline = false
 vim.o.swapfile = false
-vim.o.tabstop = indentsize
 vim.o.timeoutlen = 1500
 vim.o.undodir = vim.fn.stdpath("cache") .. "/undo"
 vim.o.undofile = true

@@ -55,9 +55,10 @@ nest.applyKeymaps({
 				"l",
 				{
 					{ "d", "<cmd>TroubleToggle document_diagnostics<cr>" },
-					{ "f", "<cmd>TroubleToggle quickfix<cr>" },
+					{ "l", "<cmd>TroubleToggle<cr>" },
+					{ "q", "<cmd>TroubleToggle quickfix<cr>" },
 					{ "r", "<cmd>TroubleToggle lsp_references<cr>" },
-					{ "t", "<cmd>TroubleToggle<cr>" },
+					{ "t", "<cmd>TodoTrouble<cr>" },
 					{ "w", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
 				},
 			},
