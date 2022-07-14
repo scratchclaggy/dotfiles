@@ -1,6 +1,4 @@
 alias arduino=arduino-cli
-alias c=clear
-alias deletus='rm -fr'
 alias dj='python manage.py'
 alias explorer='/mnt/c/Windows/explorer.exe .'
 alias files='xdg-open'
