@@ -15,3 +15,5 @@ require("nvim-treesitter.configs").setup({
 	},
 	yati = { enable = true },
 })
+
+require("nvim-surround").setup()

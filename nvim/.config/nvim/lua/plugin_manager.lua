@@ -31,7 +31,7 @@ return require("packer").startup(function()
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("tpope/vim-surround")
+	use("kylechui/nvim-surround")
 	use("tpope/vim-sleuth")
 
 	-- Snippet
