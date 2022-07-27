@@ -44,7 +44,6 @@ nest.applyKeymaps({
 			{
 				"g",
 				{
-					{ "d", ":Gvdiffsplit ", options = { silent = false } },
 					{ "f", "<cmd>tab G<cr>" },
 					{ "g", neogit.open },
 					{ "n", gitsigns.next_hunk },
@@ -65,7 +64,7 @@ nest.applyKeymaps({
 			{
 				"s",
 				{
-					{ "a", "gg0vG$" },
+					{ "a", "ggVG" },
 					{ "h", "<cmd>FocusSplitLeft<cr>" },
 					{ "j", "<cmd>FocusSplitDown<cr>" },
 					{ "k", "<cmd>FocusSplitUp<cr>" },

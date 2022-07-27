@@ -1,4 +1,5 @@
 alias arduino=arduino-cli
+alias awsume=". awsume"
 alias c=clear
 alias deletus='rm -fr'
 alias dj='python manage.py'
