@@ -43,7 +43,7 @@ nest.applyKeymaps({
 					{ "h", vim_command("Telescope help_tags") },
 					{ "j", vim_command("Telescope git_files") },
 					{ "l", vim_command("Telescope live_grep") },
-					{ "m", function() vim.lsp.buf.formatting_sync(nil, 5000) end },
+					{ "m", vim.lsp.buf.format },
 				},
 			},
 			{
@@ -95,12 +95,12 @@ nest.applyKeymaps({
 	{
 		"g",
 		{
-			{ "d", vim.lsp.buf.definition },
+			{ "d", vim_command("Lspsaga peek_definition") },
 			{ "D", vim.lsp.buf.declaration },
 			{ "i", vim.lsp.buf.implementation },
 		},
 	},
-	{ "K", vim.lsp.buf.hover },
+	{ "K", vim_command("Lspsaga hover_doc") },
 	{ "Q", "<nop>" },
 	{
 		mode = "is",

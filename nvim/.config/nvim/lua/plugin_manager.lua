@@ -18,7 +18,7 @@ return require("packer").startup(function()
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
-	use { 'kkharji/lspsaga.nvim' }
+	use { 'glepnir/lspsaga.nvim' }
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")

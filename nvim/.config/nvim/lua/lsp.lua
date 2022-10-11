@@ -1,14 +1,14 @@
 local lspconfig = require("lspconfig")
 local servers = {
-	{ language = "bashls", formatting = false },
-	{ language = "clangd", formatting = false },
-	{ language = "gopls", formatting = false },
-	{ language = "prismals", formatting = true },
-	{ language = "pyright", formatting = false },
-	{ language = "rust_analyzer", formatting = false },
-	{ language = "tailwindcss", formatting = false },
-	{ language = "texlab", formatting = false },
-	{ language = "tsserver", formatting = false },
+	{ language = "bashls" },
+	{ language = "clangd" },
+	{ language = "gopls" },
+	{ language = "prismals" },
+	{ language = "pyright" },
+	{ language = "rust_analyzer" },
+	{ language = "tailwindcss" },
+	{ language = "texlab" },
+	{ language = "tsserver" },
 }
 
 local signs = { Error = "!", Warn = "!", Hint = "?", Info = "?" }
@@ -21,15 +21,6 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp.language].setup({
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	})
-
-	if not lsp.formatting then
-		lspconfig[lsp.language].setup({
-			on_attach = function(client)
-				client.resolved_capabilities.document_formatting = false
-				client.resolved_capabilities.document_range_formatting = false
-			end,
-		})
-	end
 end
 
 local null_ls = require("null-ls")
@@ -48,10 +39,4 @@ null_ls.setup({
 require("trouble").setup()
 
 local lspsaga = require("lspsaga")
-lspsaga.setup({
-	use_saga_diagnostic_sign = false,
-	code_action_keys = { quit = "<esc>" },
-	rename_action_keys = {
-		quit = "<esc>",
-	},
-})
+lspsaga.init_lsp_saga()
