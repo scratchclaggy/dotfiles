@@ -25,26 +25,31 @@ local tab_complete = function()
 	end
 end
 
+local vim_command = function(cmd_string)
+	return "<cmd>" .. cmd_string .. "<cr>"
+end
+
 nest.applyKeymaps({
 	{
 		"<space>",
 		{
-			{ "bd", "<cmd>bd<cr>" },
+			{ "a", vim_command("Lspsaga code_action") },
+			{ "bd", vim_command("bd") },
 			{ "e", vim.diagnostic.open_float },
 			{
 				"f",
 				{
-					{ "f", "<cmd>Telescope find_files<cr>" },
-					{ "h", "<cmd>Telescope help_tags<cr>" },
-					{ "j", "<cmd>Telescope git_files<cr>" },
-					{ "l", "<cmd>Telescope live_grep<cr>" },
+					{ "f", vim_command("Telescope find_files") },
+					{ "h", vim_command("Telescope help_tags") },
+					{ "j", vim_command("Telescope git_files") },
+					{ "l", vim_command("Telescope live_grep") },
 					{ "m", function() vim.lsp.buf.formatting_sync(nil, 5000) end },
 				},
 			},
 			{
 				"g",
 				{
-					{ "f", "<cmd>tab G<cr>" },
+					{ "f", vim_command("tab G") },
 					{ "g", neogit.open },
 					{ "n", gitsigns.next_hunk },
 					{ "p", gitsigns.prev_hunk },
@@ -53,30 +58,30 @@ nest.applyKeymaps({
 			{
 				"l",
 				{
-					{ "d", "<cmd>TroubleToggle document_diagnostics<cr>" },
-					{ "l", "<cmd>TroubleToggle<cr>" },
-					{ "q", "<cmd>TroubleToggle quickfix<cr>" },
-					{ "r", "<cmd>TroubleToggle lsp_references<cr>" },
-					{ "t", "<cmd>TodoTrouble<cr>" },
-					{ "w", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
+					{ "d", vim_command("TroubleToggle document_diagnostics") },
+					{ "l", vim_command("TroubleToggle") },
+					{ "q", vim_command("TroubleToggle quickfix") },
+					{ "r", vim_command("TroubleToggle lsp_references") },
+					{ "t", vim_command("TodoTrouble") },
+					{ "w", vim_command("TroubleToggle workspace_diagnostics") },
 				},
 			},
 			{
 				"s",
 				{
 					{ "a", "ggVG" },
-					{ "h", "<cmd>FocusSplitLeft<cr>" },
-					{ "j", "<cmd>FocusSplitDown<cr>" },
-					{ "k", "<cmd>FocusSplitUp<cr>" },
-					{ "l", "<cmd>FocusSplitRight<cr>" },
+					{ "h", vim_command("FocusSplitLeft") },
+					{ "j", vim_command("FocusSplitDown") },
+					{ "k", vim_command("FocusSplitUp") },
+					{ "l", vim_command("FocusSplitRight") },
 				},
 			},
 			{ "q", {
-				{ "q", "<cmd>q<cr>" },
-				{ "n", "<cmd>wqa<cr>" },
+				{ "q", vim_command("q") },
+				{ "n", vim_command("wqa") },
 			} },
-			{ "rn", vim.lsp.buf.rename },
-			{ "w", "<cmd>w<cr>" },
+			{ "rn", vim_command(" Lspsaga rename") },
+			{ "w", vim_command("w") },
 		},
 	},
 	{
@@ -84,12 +89,17 @@ nest.applyKeymaps({
 		{
 			{ "b", gitsigns.toggle_current_line_blame },
 			{ "d", gitsigns.toggle_deleted },
-			{ "f", "<cmd>FocusToggle<cr>" },
+			{ "f", vim_command("FocusToggle") },
 		},
 	},
-	{ "gd", vim.lsp.buf.definition },
-	{ "gD", vim.lsp.buf.declaration },
-	{ "gi", vim.lsp.buf.implementation },
+	{
+		"g",
+		{
+			{ "d", vim.lsp.buf.definition },
+			{ "D", vim.lsp.buf.declaration },
+			{ "i", vim.lsp.buf.implementation },
+		},
+	},
 	{ "K", vim.lsp.buf.hover },
 	{ "Q", "<nop>" },
 	{
@@ -100,9 +110,9 @@ nest.applyKeymaps({
 			{ "<s-tab>", s_tab_complete },
 		},
 	},
-	{ "tlb", "<cmd>TexlabBuild<cr>" },
-	{ "<tab>", "<cmd>b#<cr>" },
-	{ "<s-tab>", "<cmd>bprevious<cr>" },
+	{ "tlb", vim_command("TexlabBuild") },
+	{ "<tab>", vim_command("b#") },
+	{ "<s-tab>", vim_command("bprevious") },
 	{ "<", "<gv", mode = "v" },
 	{ ">", ">gv", mode = "v" },
 	{

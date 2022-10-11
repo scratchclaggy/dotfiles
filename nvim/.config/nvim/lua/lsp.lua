@@ -45,4 +45,13 @@ null_ls.setup({
 	},
 })
 
-require('trouble').setup()
+require("trouble").setup()
+
+local lspsaga = require("lspsaga")
+lspsaga.setup({
+	use_saga_diagnostic_sign = false,
+	code_action_keys = { quit = "<esc>" },
+	rename_action_keys = {
+		quit = "<esc>",
+	},
+})
