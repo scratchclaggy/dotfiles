@@ -88,7 +88,7 @@ nest.applyKeymaps({
                     { "n", vim_command("wqa") },
                 },
             },
-            { "rn", vim_command(" Lspsaga rename") },
+            { "rn", vim_command("Lspsaga rename") },
             { "w", vim_command("w") },
         },
     },
@@ -103,7 +103,7 @@ nest.applyKeymaps({
     {
         "g",
         {
-            { "d", vim_command("Lspsaga peek_definition") },
+            { "d", vim.lsp.buf.definition },
             { "D", vim.lsp.buf.declaration },
             { "i", vim.lsp.buf.implementation },
         },
