@@ -1,11 +1,19 @@
 require("lualine").setup({
-	sections = {
-		lualine_c = { {
-			"filename",
-			path = 1,
-		} },
-	},
-	options = {
-		globalstatus = true,
-	},
+    options = {
+        globalstatus = true,
+    },
+    sections = {
+        lualine_c = {
+            {
+                "filename",
+                path = { 1 },
+            },
+        },
+    },
+    winbar = {
+        lualine_c = { "filename" },
+    },
+    inactive_winbar = {
+        lualine_c = { "filename" },
+    },
 })

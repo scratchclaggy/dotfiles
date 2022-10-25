@@ -5,6 +5,7 @@ local indentsize = 4
 vim.o.autoindent = true
 vim.o.breakindent = true
 vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
+vim.o.cmdheight = 0
 vim.o.cursorline = true
 vim.o.expandtab = true
 vim.o.hidden = true
