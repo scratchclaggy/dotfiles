@@ -43,7 +43,12 @@ nest.applyKeymaps({
                     { "h", vim_command("Telescope help_tags") },
                     { "j", vim_command("Telescope git_files") },
                     { "l", vim_command("Telescope live_grep") },
-                    { "m", vim.lsp.buf.format },
+                    {
+                        "m",
+                        function()
+                            vim.lsp.buf.format({ timeout_ms = 2000 })
+                        end,
+                    },
                 },
             },
             {
@@ -76,10 +81,13 @@ nest.applyKeymaps({
                     { "l", vim_command("FocusSplitRight") },
                 },
             },
-            { "q", {
-                { "q", vim_command("q") },
-                { "n", vim_command("wqa") },
-            } },
+            {
+                "q",
+                {
+                    { "q", vim_command("q") },
+                    { "n", vim_command("wqa") },
+                },
+            },
             { "rn", vim_command(" Lspsaga rename") },
             { "w", vim_command("w") },
         },
