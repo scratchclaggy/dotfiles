@@ -95,7 +95,7 @@ nest.applyKeymaps({
 	{
 		"g",
 		{
-			{ "d", vim_command("Lspsaga peek_definition") },
+			{ "d", vim.lsp.buf.definition },
 			{ "D", vim.lsp.buf.declaration },
 			{ "i", vim.lsp.buf.implementation },
 		},
