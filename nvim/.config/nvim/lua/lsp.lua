@@ -18,6 +18,7 @@ for type, icon in pairs(signs) do
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.offsetEncoding = 'utf-8'
 for _, lsp in ipairs(servers) do
     lspconfig[lsp.language].setup({
         capabilities = capabilities,
