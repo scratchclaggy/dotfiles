@@ -27,6 +27,8 @@ truncate_to_repo = false
 
 [git_branch]
 style = "bold #bd93f9"
+truncation_length = 16
+
 
 [nodejs]
 format = '[($version )]($style)'
