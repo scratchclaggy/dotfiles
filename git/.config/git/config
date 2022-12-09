@@ -17,3 +17,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[url "ssh://git@github.com:scratchclaggy/"]
+	insteadOf = https://github.com/scratchclaggy/
