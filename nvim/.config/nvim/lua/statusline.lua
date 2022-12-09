@@ -3,12 +3,12 @@ require("lualine").setup({
         globalstatus = true,
     },
     sections = {
-		lualine_b = { 
-			'branch', 
-			'diff', 
-			'diagnostics',
-			{ max_length = 2 } 
-		},
+        lualine_b = {
+            "branch",
+            "diff",
+            "diagnostics",
+            { max_length = 2 },
+        },
         lualine_c = {
             {
                 "filename",
