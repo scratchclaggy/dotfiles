@@ -13,7 +13,6 @@ require("nvim-treesitter.configs").setup({
     refactor = {
         highlight_definitions = { enable = true },
     },
-    yati = { enable = true },
 })
 
 require("nvim-surround").setup()

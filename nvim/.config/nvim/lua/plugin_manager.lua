@@ -13,7 +13,6 @@ return require("packer").startup(function()
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "yioneko/nvim-yati", requires = "nvim-treesitter/nvim-treesitter" })
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
