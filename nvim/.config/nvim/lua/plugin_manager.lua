@@ -10,14 +10,15 @@ return require("packer").startup(function()
     -- Plugin Manager
     use("wbthomason/packer.nvim")
 
-	-- LSP
-	use("neovim/nvim-lspconfig")
-	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
-	use { 'kkharji/lspsaga.nvim' }
+    -- LSP
+    use("neovim/nvim-lspconfig")
+    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    use({
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    })
+    use({ "kkharji/lspsaga.nvim" })
+    use({ "simrat39/rust-tools.nvim" })
 
     -- Completion
     use("hrsh7th/nvim-cmp")
@@ -28,7 +29,7 @@ return require("packer").startup(function()
     use("hrsh7th/cmp-vsnip")
 
     -- Syntax
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("nvim-treesitter/nvim-treesitter")
     use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("kylechui/nvim-surround")

@@ -6,6 +6,16 @@ local servers = {
     { language = "prismals" },
     { language = "pyright" },
     { language = "rust_analyzer" },
+    {
+        language = "sumneko_lua",
+        settings = {
+            Lua = {
+                runtime = { version = "LuaJIT" },
+                diagnostics = { globals = { "vim" } },
+                workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            },
+        },
+    },
     { language = "tailwindcss" },
     { language = "texlab" },
     { language = "tsserver" },
@@ -14,29 +24,12 @@ local servers = {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.offsetEncoding = "utf-8"
 
-require("lspconfig").sumneko_lua.setup({
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-})
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp.language].setup({
+        capabilities = capabilities,
+        settings = lsp.settings,
+    })
+end
 
 local signs = { Error = "!", Warn = "!", Hint = "?", Info = "?" }
 for type, icon in pairs(signs) do
@@ -44,11 +37,9 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp.language].setup({
-        capabilities = capabilities,
-    })
-end
+require("lspconfig").sumneko_lua.setup({
+    capabilities = capabilities,
+})
 
 local null_ls = require("null-ls")
 null_ls.setup({
@@ -70,5 +61,6 @@ null_ls.setup({
 
 require("trouble").setup()
 
-local lspsaga = require("lspsaga")
-lspsaga.setup()
+require("lspsaga").setup()
+
+require("rust-tools").setup()
