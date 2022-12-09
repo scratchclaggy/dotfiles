@@ -1,12 +1,13 @@
-Session.vim
+gh/.config/gh/hosts.yml
 
 git/.config/git/credentials
 
-gh/.config/gh/hosts.yml
-
 nvim/.config/nvim/autoload
-nvim/.config/nvim/undo
+nvim/.config/nvim/lua/.luarc.json
 nvim/.config/nvim/plugin/packer_compiled.lua
+nvim/.config/nvim/undo
+
+Session.vim
 
 zsh/.config/zsh/plugins
 zsh/.config/zsh/.zcompdump
