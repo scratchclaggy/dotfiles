@@ -1,39 +1,69 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local gitsigns = require("gitsigns")
 local neogit = require("neogit")
 local nest = require("nest")
-local trouble = require("trouble")
 
 vim.g.yoinkIncludeDeleteOperations = 1
 
-local replace_termcodes = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local s_tab_complete = function()
-    if vim.fn["vsnip#jumpable"](-1) == 1 then
-        vim.fn.feedkeys(replace_termcodes("<Plug>(vsnip-jump-prev)"), "")
-        return ""
-    end
-end
-
-local tab_complete = function()
-    if vim.fn["vsnip#available"](1) == 1 then
-        vim.fn.feedkeys(replace_termcodes("<Plug>(vsnip-expand-or-jump)"), "")
-        return ""
-    else
-        return replace_termcodes("<Tab>")
-    end
-end
-
 local vim_command = function(cmd_string)
     return "<cmd>" .. cmd_string .. "<cr>"
+end
+
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', '<leader>/', function()
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
+end, { desc = '[/] Fuzzily search in current buffer]' })
+
+local keymaps = {}
+keymaps.on_attach = function(_, bufnr)
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
+
+    nmap('<leader>rn', vim_command('Lspsaga rename'), '[R]e[n]ame')
+    nmap('<leader>ca', vim_command('Lspsaga code_action'), '[C]ode [A]ction')
+
+    nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+    nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+    -- See `:help K` for why this keymap
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+    -- Lesser used LSP functionality
+    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+    nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    nmap('<leader>wl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, '[W]orkspace [L]ist Folders')
+
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+        vim.lsp.buf.format()
+    end, { desc = 'Format current buffer with LSP' })
 end
 
 nest.applyKeymaps({
     {
         "<space>",
         {
-            { "a", vim_command("Lspsaga code_action") },
             { "bd", vim_command("bd") },
             { "e", vim.diagnostic.open_float },
             {
@@ -88,7 +118,6 @@ nest.applyKeymaps({
                     { "n", vim_command("wqa") },
                 },
             },
-            { "rn", vim_command("Lspsaga rename") },
             { "w", vim_command("w") },
         },
     },
@@ -100,24 +129,8 @@ nest.applyKeymaps({
             { "f", vim_command("FocusToggle") },
         },
     },
-    {
-        "g",
-        {
-            { "d", vim.lsp.buf.definition },
-            { "D", vim.lsp.buf.declaration },
-            { "i", vim.lsp.buf.implementation },
-        },
-    },
     { "K", vim_command("Lspsaga hover_doc") },
     { "Q", "<nop>" },
-    {
-        mode = "is",
-        options = { expr = true },
-        {
-            { "<tab>", tab_complete },
-            { "<s-tab>", s_tab_complete },
-        },
-    },
     { "tlb", vim_command("TexlabBuild") },
     { "<tab>", vim_command("b#") },
     { "<s-tab>", vim_command("bprevious") },
@@ -125,7 +138,10 @@ nest.applyKeymaps({
     { ">", ">gv", mode = "v" },
     {
         "<c-",
-        { { "h>", "<c-w>h" }, { "j>", "<c-w>j" }, { "k>", "<c-w>k" }, { "l>", "<c-w>l" } },
+        { { "h>", "<c-w>h" },
+            { "j>", "<c-w>j" },
+            { "k>", "<c-w>k" },
+            { "l>", "<c-w>l" } },
     },
     -- Cutlass / Yoink / Subversive
     { "m", "d", mode = "nx" },
@@ -147,3 +163,5 @@ nest.applyKeymaps({
         },
     },
 })
+
+return keymaps

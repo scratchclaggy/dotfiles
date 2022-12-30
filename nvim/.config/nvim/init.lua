@@ -3,7 +3,8 @@ require("plugin_manager")
 
 -- Settings and Keybindings
 require("settings")
-require("keybindings")
+require("keymaps")
+require("autocmd")
 
 -- Plugins
 require("colorscheme")

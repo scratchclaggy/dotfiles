@@ -1,35 +1,44 @@
-local lspconfig = require("lspconfig")
 local servers = {
-    { language = "bashls" },
-    { language = "clangd" },
-    { language = "gopls" },
-    { language = "prismals" },
-    { language = "pyright" },
-    { language = "rust_analyzer" },
-    {
-        language = "sumneko_lua",
-        settings = {
-            Lua = {
-                runtime = { version = "LuaJIT" },
-                diagnostics = { globals = { "vim" } },
-                workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-            },
+    bashls = {},
+    clangd = {},
+    pyright = {},
+    rust_analyzer = {},
+    sumneko_lua = {
+        Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
         },
     },
-    { language = "tailwindcss" },
-    { language = "texlab" },
-    { language = "tsserver" },
+    tailwindcss = {},
+    tsserver = {},
 }
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.offsetEncoding = "utf-8"
+require("neodev").setup()
 
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp.language].setup({
-        capabilities = capabilities,
-        settings = lsp.settings,
-    })
-end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+require("mason").setup()
+local mason_lspconfig = require("mason-lspconfig")
+
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+}
+
+local keymaps = require('keymaps')
+
+mason_lspconfig.setup_handlers({
+    function(server_name)
+        require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+            on_attach = keymaps.on_attach,
+            settings = servers[server_name],
+        })
+    end,
+})
+
+require("fidget").setup()
 
 local signs = { Error = "!", Warn = "!", Hint = "?", Info = "?" }
 for type, icon in pairs(signs) do
@@ -37,27 +46,23 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-require("lspconfig").sumneko_lua.setup({
-    capabilities = capabilities,
-})
-
-local null_ls = require("null-ls")
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.clang_format.with({
-            extra_args = { "--style", "{BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}" },
-        }),
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.formatting.stylua.with({
-            extra_args = {
-                "--indent-type",
-                "Spaces",
-            },
-        }),
-    },
-})
+--[[ local null_ls = require("null-ls") ]]
+--[[ null_ls.setup({ ]]
+--[[     sources = { ]]
+--[[         null_ls.builtins.formatting.black, ]]
+--[[         null_ls.builtins.formatting.clang_format.with({ ]]
+--[[             extra_args = { "--style", "{BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}" }, ]]
+--[[         }), ]]
+--[[         null_ls.builtins.formatting.prettier, ]]
+--[[         null_ls.builtins.formatting.rustfmt, ]]
+--[[         null_ls.builtins.formatting.stylua.with({ ]]
+--[[             extra_args = { ]]
+--[[                 "--indent-type", ]]
+--[[                 "Spaces", ]]
+--[[             }, ]]
+--[[         }), ]]
+--[[     }, ]]
+--[[ }) ]]
 
 require("trouble").setup()
 

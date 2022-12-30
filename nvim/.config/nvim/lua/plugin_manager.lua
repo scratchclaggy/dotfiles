@@ -1,95 +1,89 @@
--- Bootstrap Packer
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd("packadd packer.nvim")
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        vim.cmd([[packadd packer.nvim]])
+        return true
+    end
+    return false
 end
 
-return require("packer").startup(function()
-    -- Plugin Manager
-    use("wbthomason/packer.nvim")
+local packer_bootstrap = ensure_packer()
 
-    -- LSP
-    use("neovim/nvim-lspconfig")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-    use({
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-    })
-    use({ "kkharji/lspsaga.nvim" })
-    use({ "simrat39/rust-tools.nvim" })
+local update_treesitter = function()
+    pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+end
 
-    -- Completion
-    use("hrsh7th/nvim-cmp")
+require("packer").startup(function(use)
+    use("beauwilliams/focus.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
+    use("folke/todo-comments.nvim")
+    use("folke/trouble.nvim")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
     use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-vsnip")
-
-    -- Syntax
-    use("nvim-treesitter/nvim-treesitter")
-    use({ "nvim-treesitter/nvim-treesitter-refactor", requires = "nvim-treesitter/nvim-treesitter" })
-    use("JoosepAlviste/nvim-ts-context-commentstring")
-    use("kylechui/nvim-surround")
-    use("tpope/vim-sleuth")
-
-    -- Snippet
+    use("hrsh7th/nvim-cmp")
     use("hrsh7th/vim-vsnip")
     use("hrsh7th/vim-vsnip-integ")
-    use("rafamadriz/friendly-snippets")
-
-    -- Fuzzy Finder
-
-    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
-
-    -- Color
-    use("norcalli/nvim-colorizer.lua")
-
-    -- Colorscheme
-    use({ "dracula/vim", as = "dracula" })
-    use({ "catppuccin/nvim", as = "catppuccin" })
-
-    -- Icon
-    use("kyazdani42/nvim-web-devicons")
-
-    -- Utility
     use("jghauser/mkdir.nvim")
-    use("tpope/vim-eunuch")
-    use("tpope/vim-unimpaired")
-
-    -- Neovim Lua Development
-    use("nvim-lua/plenary.nvim")
-
-    -- Statusline
-    use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
-
-    -- Indent
+    use("JoosepAlviste/nvim-ts-context-commentstring")
+    use("jose-elias-alvarez/null-ls.nvim")
+    use("kkharji/lspsaga.nvim")
+    use("kyazdani42/nvim-web-devicons")
+    use("kylechui/nvim-surround")
+    use("lewis6991/gitsigns.nvim")
+    use("LionC/nest.nvim")
     use("lukas-reineke/indent-blankline.nvim")
-
-    -- Git
-    use({ "tpope/vim-fugitive" })
-    use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
-    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
-
-    -- Comment
+    use("neovim/nvim-lspconfig")
+    use("norcalli/nvim-colorizer.lua")
     use("numToStr/Comment.nvim")
-    use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-
-    -- Session
+    use("nvim-lualine/lualine.nvim")
+    use("nvim-lua/plenary.nvim")
+    use("nvim-telescope/telescope.nvim")
+    use({ "nvim-treesitter/nvim-treesitter", run = update_treesitter })
+    use("nvim-treesitter/nvim-treesitter-refactor")
+    use("rafamadriz/friendly-snippets")
+    use("rmagatti/auto-session")
+    use("simrat39/rust-tools.nvim")
+    use("svermeulen/vim-cutlass")
+    use("svermeulen/vim-subversive")
+    use("svermeulen/vim-yoink")
+    use("TimUntersberger/neogit")
+    use("tpope/vim-eunuch")
+    use("tpope/vim-sleuth")
+    use("tpope/vim-unimpaired")
+    use("wbthomason/packer.nvim")
     use("windwp/nvim-autopairs")
     use("windwp/nvim-ts-autotag")
 
-    -- Session
-    use("rmagatti/auto-session")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use("j-hui/fidget.nvim")
+    use("folke/neodev.nvim")
+    use("L3MON4D3/LuaSnip")
+    use("saadparwaiz1/cmp_luasnip")
+    use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
+    use("olimorris/persisted.nvim")
 
-    -- Keybinding
-    use("LionC/nest.nvim")
-    use("svermeulen/vim-cutlass")
-    use("svermeulen/vim-yoink")
-    use("svermeulen/vim-subversive")
-
-    -- Split and Window
-    use("beauwilliams/focus.nvim")
+    if packer_bootstrap then
+        require("packer").sync()
+    end
 end)
+
+if packer_bootstrap then
+    print("==================================")
+    print("    Plugins are being installed")
+    print("    Wait until Packer completes,")
+    print("       then restart nvim")
+    print("==================================")
+    return
+end
+
+--[[ local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true }) ]]
+--[[ vim.api.nvim_create_autocmd("BufWritePost", { ]]
+--[[     command = "source <afile> | silent! LspStop | silent! LspStart | PackerCompile | echo \"It freaking worked!\"", ]]
+--[[     group = packer_group, ]]
+--[[     pattern = vim.fn.expand("lua/plugin_manager.lua"), ]]
+--[[ }) ]]
