@@ -66,6 +66,7 @@ require("packer").startup(function(use)
     use("saadparwaiz1/cmp_luasnip")
     use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
     use("olimorris/persisted.nvim")
+    use("jay-babu/mason-null-ls.nvim")
 
     if packer_bootstrap then
         require("packer").sync()
@@ -80,10 +81,3 @@ if packer_bootstrap then
     print("==================================")
     return
 end
-
---[[ local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true }) ]]
---[[ vim.api.nvim_create_autocmd("BufWritePost", { ]]
---[[     command = "source <afile> | silent! LspStop | silent! LspStart | PackerCompile | echo \"It freaking worked!\"", ]]
---[[     group = packer_group, ]]
---[[     pattern = vim.fn.expand("lua/plugin_manager.lua"), ]]
---[[ }) ]]
