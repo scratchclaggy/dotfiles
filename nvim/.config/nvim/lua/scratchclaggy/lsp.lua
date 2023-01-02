@@ -29,7 +29,7 @@ mason_lspconfig.setup({
     ensure_installed = vim.tbl_keys(servers),
 })
 
-local keymaps = require("keymaps")
+local keymaps = require("scratchclaggy.keymaps")
 
 mason_lspconfig.setup_handlers({
     function(server_name)

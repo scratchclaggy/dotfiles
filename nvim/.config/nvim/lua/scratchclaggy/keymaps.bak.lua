@@ -105,10 +105,6 @@ nest.applyKeymaps({
                 "s",
                 {
                     { "a", "ggVG" },
-                    { "h", vim_command("FocusSplitLeft") },
-                    { "j", vim_command("FocusSplitDown") },
-                    { "k", vim_command("FocusSplitUp") },
-                    { "l", vim_command("FocusSplitRight") },
                 },
             },
             {
@@ -138,10 +134,12 @@ nest.applyKeymaps({
     { ">", ">gv", mode = "v" },
     {
         "<c-",
-        { { "h>", "<c-w>h" },
-            { "j>", "<c-w>j" },
-            { "k>", "<c-w>k" },
-            { "l>", "<c-w>l" } },
+        {
+            { "h>", vim_command("FocusSplitLeft") },
+            { "j>", vim_command("FocusSplitDown") },
+            { "k>", vim_command("FocusSplitUp") },
+            { "l>", vim_command("FocusSplitRight") },
+        },
     },
     -- Cutlass / Yoink / Subversive
     { "m", "d", mode = "nx" },
