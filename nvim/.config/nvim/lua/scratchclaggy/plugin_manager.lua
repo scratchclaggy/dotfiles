@@ -68,6 +68,7 @@ require("packer").startup(function(use)
     use("olimorris/persisted.nvim")
     use("jay-babu/mason-null-ls.nvim")
     use("folke/which-key.nvim")
+    use("delphinus/vim-firestore")
 
     if packer_bootstrap then
         require("packer").sync()
