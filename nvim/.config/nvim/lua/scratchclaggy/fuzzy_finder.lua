@@ -8,14 +8,18 @@ telescope.setup({
         help_tags = {
             mappings = {
                 i = {
-                    ["<CR>"] = actions.select_tab
+                    ["<CR>"] = actions.select_tab,
                 },
             },
         },
     },
     defaults = {
         mappings = {
-            i = { ["<c-t>"] = trouble.open_with_trouble },
+            i = {
+                ["<c-t>"] = trouble.open_with_trouble,
+                ["<c-u>"] = false,
+                ["<c-d>"] = false,
+            },
             n = { ["<c-t>"] = trouble.open_with_trouble },
         },
     },

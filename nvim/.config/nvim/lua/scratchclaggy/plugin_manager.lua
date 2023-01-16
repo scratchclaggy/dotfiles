@@ -67,7 +67,6 @@ require("packer").startup(function(use)
     use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
     use("olimorris/persisted.nvim")
     use("jay-babu/mason-null-ls.nvim")
-    use("folke/which-key.nvim")
     use("delphinus/vim-firestore")
 
     if packer_bootstrap then
