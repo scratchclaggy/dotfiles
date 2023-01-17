@@ -8,7 +8,6 @@ local servers = {
     bashls = {},
     clangd = {},
     pyright = {},
-    rust_analyzer = {},
     sumneko_lua = {
         Lua = {
             runtime = { version = "LuaJIT" },
@@ -22,6 +21,31 @@ local servers = {
     tailwindcss = {},
     tsserver = {},
 }
+
+local on_attach = function(_, bufnr)
+    local nmap = function(keys, func)
+        vim.keymap.set("n", keys, func, { buffer = bufnr })
+    end
+
+    nmap("<leader>rn", cmd("Lspsaga rename"))
+    nmap("<leader>ca", cmd("Lspsaga code_action"))
+    nmap("gd", vim.lsp.buf.definition)
+    nmap("gr", cmd("TroubleToggle lsp_references"))
+    nmap("gR", telescope.lsp_references)
+    nmap("gI", vim.lsp.buf.implementation)
+    nmap("<leader>D", vim.lsp.buf.type_definition)
+    nmap("<leader>ds", telescope.lsp_document_symbols)
+    nmap("<leader>ws", telescope.lsp_dynamic_workspace_symbols)
+    nmap("K", cmd("Lspsaga hover_doc"))
+    nmap("<C-k>", vim.lsp.buf.signature_help)
+    nmap("gD", vim.lsp.buf.declaration)
+    nmap("<leader>wa", vim.lsp.buf.add_workspace_folder)
+    nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder)
+    nmap("<leader>wl", function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end)
+    nmap("<leader>fm", vim.lsp.buf.format)
+end
 
 require("neodev").setup()
 
@@ -39,30 +63,7 @@ mason_lspconfig.setup_handlers({
     function(server_name)
         require("lspconfig")[server_name].setup({
             capabilities = capabilities,
-            on_attach = function(_, bufnr)
-                local nmap = function(keys, func)
-                    vim.keymap.set("n", keys, func, { buffer = bufnr })
-                end
-
-                nmap("<leader>rn", cmd("Lspsaga rename"))
-                nmap("<leader>ca", cmd("Lspsaga code_action"))
-                nmap("gd", vim.lsp.buf.definition)
-                nmap("gr", cmd("TroubleToggle lsp_references"))
-                nmap("gR", telescope.lsp_references)
-                nmap("gI", vim.lsp.buf.implementation)
-                nmap("<leader>D", vim.lsp.buf.type_definition)
-                nmap("<leader>ds", telescope.lsp_document_symbols)
-                nmap("<leader>ws", telescope.lsp_dynamic_workspace_symbols)
-                nmap("K", cmd("Lspsaga hover_doc"))
-                nmap("<C-k>", vim.lsp.buf.signature_help)
-                nmap("gD", vim.lsp.buf.declaration)
-                nmap("<leader>wa", vim.lsp.buf.add_workspace_folder)
-                nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder)
-                nmap("<leader>wl", function()
-                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                end)
-                nmap("<leader>fm", vim.lsp.buf.format)
-            end,
+            on_attach = on_attach,
             settings = servers[server_name],
         })
     end,
@@ -105,4 +106,8 @@ null_ls.setup()
 require("fidget").setup()
 require("trouble").setup()
 require("lspsaga").setup()
-require("rust-tools").setup()
+require("rust-tools").setup({
+    server = {
+        on_attach = on_attach
+    }
+})
