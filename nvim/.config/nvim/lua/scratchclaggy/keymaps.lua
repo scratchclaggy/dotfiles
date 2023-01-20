@@ -81,5 +81,5 @@ map("n", "<c-k>", cmd("FocusSplitUp"))
 map("n", "<c-l>", cmd("FocusSplitRight"))
 
 map("n", "yob", gitsigns.toggle_current_line_blame)
-map("n", "yod", gitsigns.toggle_current_line_blame)
+map("n", "yod", gitsigns.toggle_deleted)
 map("n", "yof", cmd("FocusToggle"))
