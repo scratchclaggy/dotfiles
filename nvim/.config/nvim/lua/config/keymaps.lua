@@ -4,8 +4,13 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-local plug = require("utilities").plug
+local utilities = require("utilities")
+local plug = utilities.plug
+local cmd = utilities.cmd
 
+map("n", "<leader>w", cmd("w"))
+
+-- Cutlass / Subversive / Yoink
 map({ "n", "x" }, "m", "d")
 map("n", "mm", "dd")
 map("n", "M", "D")
