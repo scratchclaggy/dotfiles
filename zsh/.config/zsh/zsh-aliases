@@ -10,6 +10,7 @@ alias gs='git status'
 alias ks='kitty +kitten ssh'
 alias ll='exa -al'
 alias la='exa -1a'
+alias lg='lazygit'
 alias ls='exa'
 alias python=python3
 alias '?'='echo $?'
