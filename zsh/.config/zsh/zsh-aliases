@@ -1,3 +1,4 @@
+alias '?'='echo $?'
 alias arduino=arduino-cli
 alias awsume=". awsume"
 alias c=clear
@@ -8,8 +9,8 @@ alias files='xdg-open'
 alias g=git
 alias gs='git status'
 alias ks='kitty +kitten ssh'
-alias ll='exa -al'
 alias la='exa -1a'
+alias lg='lazygit'
+alias ll='exa -al'
 alias ls='exa'
 alias python=python3
-alias '?'='echo $?'

@@ -1,4 +1,4 @@
 local opt = vim.opt
 
 opt.scrolloff = 8
-opt.timeoutlen = 1500
+opt.timeoutlen = 400
