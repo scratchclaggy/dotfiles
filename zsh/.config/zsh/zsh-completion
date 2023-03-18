@@ -1,5 +1,4 @@
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit
 # complete -o nospace -C /usr/bin/terraform terraform
 fpath=(/Users/james/.granted/zsh_autocomplete/assume/ $fpath)
 fpath=(/Users/james/.granted/zsh_autocomplete/granted/ $fpath)

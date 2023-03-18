@@ -31,6 +31,8 @@ truncate_to_repo = false
 style = "bold #bd93f9"
 truncation_length = 16
 
+[git_status]
+stashed = ""
 
 [nodejs]
 format = '[($version )]($style)'

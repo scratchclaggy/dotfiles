@@ -4,9 +4,7 @@ return {
     config = function()
       require("neogit").setup()
     end,
-    keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>" },
-    },
+    lazy = false,
   },
   {
     "lewis6991/gitsigns.nvim",

@@ -1,14 +1,22 @@
+local Util = require("lazyvim.util")
 local function map(mode, lhs, rhs, opts)
   opts = opts or {}
   opts.silent = opts.silent ~= false
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-local utilities = require("utilities")
-local plug = utilities.plug
-local cmd = utilities.cmd
+local plug = require("utilities").plug
+local cmd = require("utilities").cmd
+
+local neogit = require("neogit")
 
 map("n", "<leader>w", cmd("w"))
+
+map("n", "<leader>gg", neogit.open, { desc = "Neogit" })
+map("n", "<leader>gl", function()
+  Util.float_term({ "lazygit" }, { cwd = Util.get_root() })
+end, { desc = "Lazygit" })
+map("n", "<leader>gG", "<nop>")
 
 -- Cutlass / Subversive / Yoink
 map({ "n", "x" }, "m", "d")
