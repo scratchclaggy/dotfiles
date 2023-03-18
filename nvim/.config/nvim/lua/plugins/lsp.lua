@@ -1,7 +1,4 @@
 return {
-  { "neovim/nvim-lspconfig", opts = {
-    autoformat = false,
-  } },
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
