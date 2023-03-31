@@ -11,8 +11,6 @@ local cmd = require("utilities").cmd
 local neogit = require("neogit")
 local gs = require("gitsigns")
 
-map("n", "<leader>w", cmd("w"))
-
 map("n", "<leader>gg", neogit.open, { desc = "Neogit" })
 map("n", "<leader>gl", function()
   Util.float_term({ "lazygit" }, { cwd = Util.get_root() })
