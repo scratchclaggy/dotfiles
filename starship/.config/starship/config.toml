@@ -35,9 +35,9 @@ truncation_length = 16
 stashed = ""
 
 [nodejs]
-format = '[($version )]($style)'
+format = ' [($version )]($style)'
 style = 'bold yellow'
 
 [python]
-format = '[(\($virtualenv\) )]($style)'
+format = ' [(\($virtualenv\) )]($style)'
 style = 'bold yellow'
