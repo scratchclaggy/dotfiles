@@ -39,5 +39,5 @@ eval "$(zoxide init zsh)"
 # Enable thefuck
 eval $(thefuck --alias ugh)
 
-# Enable granted
+# Ename granted / assume
 alias assume="source assume"
