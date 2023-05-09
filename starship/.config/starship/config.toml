@@ -17,6 +17,7 @@ $status\
 $character"""
 
 add_newline = true
+command_timeout = 50
 
 [character]
 error_symbol = "[!](bold red)"
