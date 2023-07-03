@@ -1,6 +1,6 @@
 return {
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     config = function()
       require("neogit").setup({
         disable_commit_confirmation = true,
