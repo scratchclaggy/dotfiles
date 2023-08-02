@@ -23,12 +23,15 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # Enable FZF key bindings
 zsh_add_file "zsh-fzf"
 
+# Enable Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Use starship prompt
 eval "$(starship init zsh)"
 
 # Enable NVM
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads NVM
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Enable GHCup
 [ -f "/home/james/.ghcup/env" ] && source "/home/james/.ghcup/env" # ghcup-env

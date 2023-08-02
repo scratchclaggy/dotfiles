@@ -5,6 +5,7 @@ export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export HISTSIZE=1000
 export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NVM_DIR="$HOME/.nvm"
 export PAGER="bat -p"
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export PYENV_ROOT="$HOME/.pyenv"

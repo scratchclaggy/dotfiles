@@ -2,6 +2,7 @@ alias '?'='echo $?'
 alias arduino=arduino-cli
 alias awsume=". awsume"
 alias c=clear
+alias cat=bat
 alias deletus='rm -fr'
 alias dj='python manage.py'
 alias explorer='/mnt/c/Windows/explorer.exe .'
