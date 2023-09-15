@@ -1,7 +1,6 @@
 [user]
 	name = James van de Ven
-	email = james.vandeven@woodside.com.au
-	signingkey = ~/.ssh/id_ed25519.pub
+	email = hello@jamesvandeven.com
 [core]
 	editor = nvim
 	pager = less
