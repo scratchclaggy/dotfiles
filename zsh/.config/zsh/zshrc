@@ -23,9 +23,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # Enable FZF key bindings
 zsh_add_file "zsh-fzf"
 
-# Enable Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
-
 # Use starship prompt
 eval "$(starship init zsh)"
 
