@@ -1,3 +1,5 @@
+local plug = require("utilities").plug
+
 return {
   {
     "gbprod/yanky.nvim",
@@ -9,12 +11,12 @@ return {
       },
     },
     keys = {
-      { "p", "<Plug>(YankyPutAfter)", { "n", "x" } },
-      { "P", "<Plug>(YankyPutBefore)", { "n", "x" } },
-      { "gp", "<Plug>(YankyGPutAfter)", { "n", "x" } },
-      { "gP", "<Plug>(YankyGPutBefore)", { "n", "x" } },
-      { "<c-n>", "<Plug>(YankyCycleForward)" },
-      { "<c-p>", "<Plug>(YankyCycleBackward)" },
+      { "p", plug("YankyPutAfter"), { "n", "x" } },
+      { "P", plug("YankyPutBefore"), { "n", "x" } },
+      { "gp", plug("YankyGPutAfter"), { "n", "x" } },
+      { "gP", plug("YankyGPutBefore"), { "n", "x" } },
+      { "<c-n>", plug("YankyCycleForward") },
+      { "<c-p>", plug("YankyCycleBackward") },
     },
     dependencies = {
       "telescope.nvim",
@@ -25,18 +27,18 @@ return {
   },
   {
     "gbprod/substitute.nvim",
-    lazy = false,
     config = function()
+      local set = vim.keymap.set
       require("substitute").setup()
 
-      vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
-      vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
-      vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
-      vim.keymap.set("n", "sx", require("substitute.exchange").operator, { noremap = true })
-      vim.keymap.set("n", "sxx", require("substitute.exchange").line, { noremap = true })
-      vim.keymap.set("x", "X", require("substitute.exchange").visual, { noremap = true })
-      vim.keymap.set("n", "sxc", require("substitute.exchange").cancel, { noremap = true })
-      vim.keymap.set("x", "s", require("substitute").visual, { noremap = true })
+      set("n", "s", require("substitute").operator, { noremap = true })
+      set("n", "ss", require("substitute").line, { noremap = true })
+      set("n", "S", require("substitute").eol, { noremap = true })
+      set("n", "sx", require("substitute.exchange").operator, { noremap = true })
+      set("n", "sxx", require("substitute.exchange").line, { noremap = true })
+      set("x", "X", require("substitute.exchange").visual, { noremap = true })
+      set("n", "sxc", require("substitute.exchange").cancel, { noremap = true })
+      set("x", "s", require("substitute").visual, { noremap = true })
     end,
   },
   {
