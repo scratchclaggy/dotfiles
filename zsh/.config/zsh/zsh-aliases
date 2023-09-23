@@ -1,17 +1,25 @@
 alias '?'='echo $?'
-alias arduino=arduino-cli
-alias awsume=". awsume"
-alias c=clear
-alias cat=bat
-alias deletus='rm -fr'
-alias dj='python manage.py'
 alias explorer='/mnt/c/Windows/explorer.exe .'
 alias files='xdg-open'
-alias g=git
+alias g='git'
 alias gs='git status'
-alias ks='kitty +kitten ssh'
-alias la='exa -1a'
 alias lg='lazygit'
-alias ll='exa -al'
-alias ls='exa'
 alias python=python3
+
+if [ $(command -v exa) ]
+then
+  alias ls='exa'
+  alias ll='exa -al'
+  alias la='exa -1a'
+else
+  echo "Install 'exa'"
+  alias ll='ls -l'
+  alias la='ls -la'
+fi
+
+if [ $(command -v bat) ]
+then
+  alias cat='bat'
+else
+  echo "Install 'bat'"
+fi

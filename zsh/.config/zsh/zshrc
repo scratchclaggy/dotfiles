@@ -41,3 +41,6 @@ eval $(thefuck --alias ugh)
 
 # Ename granted / assume
 alias assume="source assume"
+
+# Enable rust
+[ -s "/home/james/.local/share/cargo/env" ] && \. "/home/james/.local/share/cargo/env" || "Run rustup https://rustup.rs/"
