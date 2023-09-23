@@ -1,4 +1,6 @@
-local plug = require("utilities").plug
+local plug = function(cmd_string)
+  return "<plug>(" .. cmd_string .. ")"
+end
 
 return {
   {
