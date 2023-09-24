@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "Catppuccin Mocha",
-	font_size = 14,
+	font_size = 13,
 	font = wezterm.font("JetbrainsMono Nerd Font"),
 
 	-- timeout_milliseconds defaults to 1000 and can be omitted
