@@ -7,6 +7,5 @@ return {
         disable_builtin_notifications = true,
       })
     end,
-    lazy = false,
   },
 }
