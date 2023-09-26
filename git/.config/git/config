@@ -1,6 +1,6 @@
 [user]
 	name = James van de Ven
-	email = hello@jamesvandeven.com
+	email = james.vandeven@woodside.com
 [core]
 	editor = nvim
 	pager = less
