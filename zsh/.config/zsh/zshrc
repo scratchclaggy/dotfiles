@@ -9,10 +9,10 @@ zle_highlight=('paste:none')
 source "$ZDOTDIR/zsh-functions"
 
 # Normal files to source
-zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-completion"
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-path"
+zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
 
 # Plugins
