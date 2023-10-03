@@ -6,7 +6,7 @@ alias gs='git status'
 alias lg='lazygit'
 alias python=python3
 
-if [ $(command -v exa) ]
+if [[ $(command -v exa) ]]
 then
   alias ls='exa'
   alias ll='exa -al'
@@ -17,7 +17,7 @@ else
   alias la='ls -la'
 fi
 
-if [ $(command -v bat) ]
+if [[ $(command -v bat) ]]
 then
   alias cat='bat'
 else

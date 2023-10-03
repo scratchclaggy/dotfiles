@@ -8,6 +8,9 @@ zle_highlight=('paste:none')
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
+# Enable Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Normal files to source
 zsh_add_file "zsh-completion"
 zsh_add_file "zsh-exports"
@@ -22,9 +25,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Enable FZF key bindings
 zsh_add_file "zsh-fzf"
-
-# Enable Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
 
 # Use starship prompt
 eval "$(starship init zsh)"
