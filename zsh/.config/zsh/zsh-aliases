@@ -1,4 +1,5 @@
 alias '?'='echo $?'
+alias cnsl='assume -c'
 alias explorer='/mnt/c/Windows/explorer.exe .'
 alias files='xdg-open'
 alias g='git'
