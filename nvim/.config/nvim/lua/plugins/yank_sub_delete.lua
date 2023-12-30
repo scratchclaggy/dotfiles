@@ -4,30 +4,6 @@ end
 
 return {
   {
-    "gbprod/yanky.nvim",
-    opts = {
-      highlight = {
-        on_put = true,
-        on_yank = true,
-        timer = 200,
-      },
-    },
-    keys = {
-      { "p", plug("YankyPutAfter"), { "n", "x" } },
-      { "P", plug("YankyPutBefore"), { "n", "x" } },
-      { "gp", plug("YankyGPutAfter"), { "n", "x" } },
-      { "gP", plug("YankyGPutBefore"), { "n", "x" } },
-      { "<c-n>", plug("YankyCycleForward") },
-      { "<c-p>", plug("YankyCycleBackward") },
-    },
-    dependencies = {
-      "telescope.nvim",
-      config = function()
-        require("telescope").load_extension("yank_history")
-      end,
-    },
-  },
-  {
     "gbprod/substitute.nvim",
     config = function()
       local set = vim.keymap.set
