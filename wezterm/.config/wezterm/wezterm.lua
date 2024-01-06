@@ -3,7 +3,11 @@ local wezterm = require("wezterm")
 return {
 	color_scheme = "Catppuccin Mocha",
 	font_size = 13,
-	font = wezterm.font("JetbrainsMono Nerd Font"),
+	font = wezterm.font_with_fallback({
+		"Monaspace Neon",
+		"Jetbrains Mono",
+		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+	}),
 
 	-- timeout_milliseconds defaults to 1000 and can be omitted
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
