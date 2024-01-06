@@ -5,6 +5,9 @@ setopt nomatch      # print errors when using invalid filename expansion
 
 zle_highlight=('paste:none')
 
+# Enable rust
+[ -s "/home/james/.local/share/cargo/env" ] && \. "/home/james/.local/share/cargo/env" || "Run rustup https://rustup.rs/"
+
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
@@ -42,5 +45,3 @@ eval $(thefuck --alias ugh)
 # Ename granted / assume
 alias assume="source assume"
 
-# Enable rust
-[ -s "/home/james/.local/share/cargo/env" ] && \. "/home/james/.local/share/cargo/env" || "Run rustup https://rustup.rs/"
