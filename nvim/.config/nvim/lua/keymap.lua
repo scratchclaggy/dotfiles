@@ -1,7 +1,17 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local map = vim.keymap.set
+
+-- Session utilities
+map('n', '<leader>js', '<cmd>qa<cr>', { desc = '[J]ump [s]hip' })
+map('n', '<leader>w', '<cmd>w<cr>', { desc = '[W]rite' })
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -27,3 +37,6 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('n', '<C-\\>', '<C-w>v', { desc = 'Split vertically' })
 map('n', '<C-s>', '<C-w>s', { desc = 'Split vertically' })
+
+-- Disable command history
+map('n', 'q:', '<nop>')
