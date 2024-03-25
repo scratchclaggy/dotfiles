@@ -5,13 +5,15 @@ alias files='xdg-open'
 alias g='git'
 alias gs='git status'
 alias lg='lazygit'
-alias python=python3
+alias python='python3'
+alias p='pnpm'
 
 if [[ $(command -v exa) ]]
 then
   alias ls='exa'
   alias ll='exa -al'
   alias la='exa -1a'
+  alias tree='exa --tree'
 else
   echo "Install 'exa'"
   alias ll='ls -l'
