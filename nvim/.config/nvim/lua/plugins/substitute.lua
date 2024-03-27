@@ -1,18 +1,20 @@
 return {
   'gbprod/substitute.nvim',
-  opts = {},
-  keys = function()
+  config = function()
     local substitute = require 'substitute'
     local exchange = require 'substitute.exchange'
-    return {
-      { 's', substitute.operator },
-      { 'ss', substitute.line },
-      { 'S', substitute.eol },
-      { 'sx', exchange.operator },
-      { 'sxx', exchange.line },
-      { 'X', exchange.visual },
-      { 'sxc', exchange.cancel },
-      { 's', substitute.visual },
-    }
+    local set = vim.keymap.set
+
+    substitute.setup()
+
+    set('n', 's', substitute.operator)
+    set('n', 'ss', substitute.line)
+    set('n', 'S', substitute.eol)
+    set('x', 's', substitute.visual)
+
+    set('n', 'sx', exchange.operator)
+    set('n', 'sxx', exchange.line)
+    set('x', 'X', exchange.visual)
+    set('n', 'sxc', exchange.cancel)
   end,
 }
