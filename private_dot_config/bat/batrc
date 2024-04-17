@@ -1,0 +1,2 @@
+# If bat claims not to know your theme, update the cache with `bat cache --build`
+--theme="Catppuccin-Mocha"

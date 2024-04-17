@@ -1,0 +1,30 @@
+[user]
+	name = James van de Ven
+	email = {{ .email }}
+	signingkey = ~/.ssh/id_ed25519.pub
+[core]
+	editor = nvim
+	pager = less
+	excludesfile = $HOME/.config/git/gitignore_global
+	autocrlf = input
+[alias]
+	br = branch
+	bl = branch -l
+	ci = commit
+	co = checkout
+	nb = checkout -b
+	st = status
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+{{- if eq .chezmoi.hostname "work-macbook" }}
+[commit]
+	gpgsign = true
+[gpg]
+ 	format = ssh
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+{{- end }}

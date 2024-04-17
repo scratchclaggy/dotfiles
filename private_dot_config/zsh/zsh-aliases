@@ -1,0 +1,28 @@
+alias '?'='echo $?'
+alias cnsl='assume -c'
+alias explorer='/mnt/c/Windows/explorer.exe .'
+alias files='xdg-open'
+alias g='git'
+alias gs='git status'
+alias lg='lazygit'
+alias python='python3'
+alias p='pnpm'
+
+if [[ $(command -v exa) ]]
+then
+  alias ls='exa'
+  alias ll='exa -al'
+  alias la='exa -1a'
+  alias tree='exa --tree'
+else
+  echo "Install 'exa'"
+  alias ll='ls -l'
+  alias la='ls -la'
+fi
+
+if [[ $(command -v bat) ]]
+then
+  alias cat='bat'
+else
+  echo "Install 'bat'"
+fi

@@ -1,0 +1,48 @@
+setopt autocd       # auto cd when given a dir name
+setopt extendedglob # expand #, ~, and ^
+# setopt menucomplete # use fist completion on tab, then cycle
+setopt nomatch      # print errors when using invalid filename expansion
+
+zle_highlight=('paste:none')
+
+# Enable rust
+[ -s "/home/james/.local/share/cargo/env" ] && \. "/home/james/.local/share/cargo/env" || "Run rustup https://rustup.rs/"
+
+# Enable thefuck
+eval $(thefuck --alias ugh)
+
+# Useful Functions
+source "$ZDOTDIR/zsh-functions"
+
+# Enable Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# Normal files to source
+zsh_add_file "zsh-completion"
+zsh_add_file "zsh-exports"
+zsh_add_file "zsh-path"
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-prompt"
+
+# Plugins
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+# For more plugins: https://github.com/unixorn/awesome-zsh-plugins
+
+# Enable FZF key bindings
+zsh_add_file "zsh-fzf"
+
+# Use starship prompt
+eval "$(starship init zsh)"
+
+# Enable GHCup
+[ -f "/home/james/.ghcup/env" ] && source "/home/james/.ghcup/env" # ghcup-env
+
+# Enable zoxide
+eval "$(zoxide init zsh)"
+
+# Ename granted / assume
+alias assume="source assume"
+
+# bun completions
+[ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun"
