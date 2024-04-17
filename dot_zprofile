@@ -1,0 +1,43 @@
+# Basics
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export EDITOR='nvim'
+export PAGER="bat -p"
+
+# Zsh History
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+# Config / Programs
+export BAT_CONFIG_PATH=$XDG_CONFIG_HOME/bat/batrc
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+export GOPATH=$XDG_DATA_HOME/go
+export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
+export PYENV_ROOT="$HOME/.pyenv"
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/config.toml
+export VOLTA_HOME="$HOME/.volta"
+
+# Path
+export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/coursier/bin:$PATH"
+export PATH="$HOME/.local/share/go/bin:$PATH"
+export PATH="$HOME/.local/share/npm/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.pulumi/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="/usr/local/android-studio/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+
+# Program specific environment variables
+[[ -e "$XDG_DATA_HOME/cargo/env" ]] && source "/home/james/.local/share/cargo/env"
+
+### Lines beneath here were appended by some script ###
