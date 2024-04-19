@@ -4,12 +4,6 @@ setopt nomatch      # print errors when using invalid filename expansion
 
 zle_highlight=('paste:none') # Don't highlight text on paste
 
-# Useful Functions
-# source "$ZDOTDIR/zsh-functions"
-
-# Enable Homebrew
-# eval $(/opt/homebrew/bin/brew shellenv)
-
 # Aliases
 alias '?'='echo $?'
 alias assume="source assume"
@@ -41,37 +35,14 @@ else
   echo "Install 'bat'"
 fi
 
-# Normal files to source
-#
-# zsh_add_file "zsh-completion"
-#
-# autoload -Uz compinit && compinit
-# fpath=(/Users/james/.granted/zsh_autocomplete/assume/ $fpath)
-# fpath=(/Users/james/.granted/zsh_autocomplete/granted/ $fpath)
-#
-# zsh_add_file "zsh-prompt"
-
-
-# Plugins
-# zsh_add_plugin "zsh-users/zsh-autosuggestions"
-# zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-# For more plugins: https://github.com/unixorn/awesome-zsh-plugins
-
-# Enable FZF key bindings
-# zsh_add_file "zsh-fzf"
-
-# Use starship prompt
-eval "$(starship init zsh)"
-
-# Enable GHCup
-[ -f "/home/james/.ghcup/env" ] && source "/home/james/.ghcup/env" # ghcup-env
-
-# bun completions
+# Completion
 [ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun"
 
 # Enable programs
-[[ -e "$HOME/.local/bin/thefuck" ]] && eval "$(thefuck --alias ugh)"
-[[ -e '/usr/bin/zoxide' ]] && eval "$(zoxide init zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
+eval "$(thefuck --alias ugh)"
+eval "$(zoxide init zsh)"
 
 # Zinit
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
