@@ -4,6 +4,14 @@ setopt nomatch      # print errors when using invalid filename expansion
 
 zle_highlight=('paste:none') # Don't highlight text on paste
 
+# Enable programs
+{{- if eq .chezmoi.os "darwin" }}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end }}
+eval "$(starship init zsh)"
+eval "$(thefuck --alias ugh)"
+eval "$(zoxide init zsh)"
+
 # Aliases
 alias '?'='echo $?'
 alias assume="source assume"
@@ -37,12 +45,6 @@ fi
 
 # Completion
 [ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun"
-
-# Enable programs
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
-eval "$(thefuck --alias ugh)"
-eval "$(zoxide init zsh)"
 
 # Zinit
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then

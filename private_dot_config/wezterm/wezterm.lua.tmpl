@@ -4,7 +4,7 @@ return {
 	color_scheme = "Catppuccin Mocha",
 	font_size = {{ .font_size }},
 	font = wezterm.font_with_fallback({
-	{{- if eq .chezmoi.hostname "work-macbook" }}
+	{{- if eq .device "work-macbook" }}
 		"JetbrainsMono Nerd Font"
 		{{- else }}
 		"Monaspace Neon",
