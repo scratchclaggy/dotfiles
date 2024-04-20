@@ -1,1 +1,4 @@
 key.txt.age
+{{- if eq .device "work-macbook" }}
+dot_aws/encrypted_private_credentials.age
+{{- end }}
