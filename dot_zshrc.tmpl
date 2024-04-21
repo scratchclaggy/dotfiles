@@ -20,6 +20,7 @@ alias explorer='/mnt/c/Windows/explorer.exe .'
 alias files='xdg-open'
 alias g='git'
 alias gs='git status'
+alias nala='sudo nala'
 alias lg='lazygit'
 alias python='python3'
 alias p='pnpm'
@@ -44,7 +45,13 @@ else
 fi
 
 # Completion
-[ -s "/Users/james/.bun/_bun" ] && source "/Users/james/.bun/_bun"
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Zinit
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
