@@ -13,7 +13,6 @@ return {
       'tsx',
       'typescript',
       'vim',
-      'vimdoc',
     },
     auto_install = true,
     highlight = true,
