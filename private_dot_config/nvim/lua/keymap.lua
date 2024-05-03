@@ -11,7 +11,7 @@ local map = vim.keymap.set
 
 -- Session utilities
 map('n', '<leader>js', '<cmd>qa<cr>', { desc = '[J]ump [s]hip' })
-map('n', '<leader>wb', '<cmd>w<cr>', { desc = '[W]rite' })
+map('n', '<leader>ww', '<cmd>w<cr>', { desc = '[W]rite' })
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -36,7 +36,7 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right [W]indow' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower [W]indow' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper [W]indow' })
 map('n', '<leader>wq', '<C-w>q', { desc = '[Q]uit [W]indow' })
-map('n', '<leader>\\', '<C-w>v', { desc = 'Split vertically' })
+map('n', '<leader>|', '<C-w>v', { desc = 'Split vertically' })
 map('n', '<leader>-', '<C-w>s', { desc = 'Split vertically' })
 
 -- Disable command history
