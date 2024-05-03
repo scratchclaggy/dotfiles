@@ -38,6 +38,6 @@ export PATH="/usr/local/android-studio/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
 # Program specific environment variables
-[[ -e "$XDG_DATA_HOME/cargo/env" ]] && source "/home/james/.local/share/cargo/env"
+[[ -e "$XDG_DATA_HOME/cargo/env" ]] && source "$XDG_DATA_HOME/cargo/env"
 
 ### Lines beneath here were appended by some script ###
