@@ -13,6 +13,7 @@ return {
       lua = { 'stylua' },
       -- python = { "isort", "black" },
       javascript = { { 'prettierd', 'prettier' } },
+      json = { { 'prettierd', 'prettier' } },
       typescript = { { 'prettierd', 'prettier' } },
       typescriptreact = { { 'prettierd', 'prettier' } },
       yaml = { { 'prettierd', 'prettier' } },
