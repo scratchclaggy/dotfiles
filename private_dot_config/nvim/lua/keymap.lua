@@ -31,10 +31,6 @@ map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left [W]indow' })
-map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right [W]indow' })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower [W]indow' })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper [W]indow' })
 map('n', '<leader>wq', '<C-w>q', { desc = '[Q]uit [W]indow' })
 map('n', '<leader>|', '<C-w>v', { desc = 'Split vertically' })
 map('n', '<leader>-', '<C-w>s', { desc = 'Split vertically' })
