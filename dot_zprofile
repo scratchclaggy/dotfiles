@@ -6,9 +6,17 @@ export EDITOR='nvim'
 export PAGER="bat -p"
 
 # Zsh History
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-export HISTSIZE=1000000
-export SAVEHIST=1000000
+HISTFILE="$XDG_CACHE_HOME/zsh/history"
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
 # Config / Programs
 export BAT_CONFIG_PATH=$XDG_CONFIG_HOME/bat/batrc
