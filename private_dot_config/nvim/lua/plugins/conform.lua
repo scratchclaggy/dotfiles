@@ -14,6 +14,7 @@ return {
       -- python = { "isort", "black" },
       javascript = { { 'prettierd', 'prettier' } },
       json = { { 'prettierd', 'prettier' } },
+      rust = { 'rustfmt' },
       typescript = { { 'prettierd', 'prettier' } },
       typescriptreact = { { 'prettierd', 'prettier' } },
       yaml = { { 'prettierd', 'prettier' } },
