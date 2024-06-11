@@ -18,6 +18,8 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[rerere]
+	enabled = true
 {{- if eq .device "work-macbook" }}
 [commit]
 	gpgsign = true
@@ -27,4 +29,6 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[maintenance]
+	repo = /Users/james/code/cloud-native-factory
 {{- end }}
