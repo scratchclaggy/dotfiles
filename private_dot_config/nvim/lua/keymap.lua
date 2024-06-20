@@ -37,3 +37,7 @@ map('n', '<leader>-', '<C-w>s', { desc = 'Split vertically' })
 
 -- Disable command history
 map('n', 'q:', '<nop>', {})
+
+-- Better indenting
+map('n', '<', '<gv')
+map('n', '>', '>gv')
