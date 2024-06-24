@@ -10,6 +10,7 @@ return {
       }
     end,
     formatters_by_ft = {
+      html = { { 'prettierd', 'prettier' } },
       lua = { 'stylua' },
       -- python = { "isort", "black" },
       javascript = { { 'prettierd', 'prettier' } },
