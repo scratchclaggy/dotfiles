@@ -39,5 +39,5 @@ map('n', '<leader>-', '<C-w>s', { desc = 'Split vertically' })
 map('n', 'q:', '<nop>', {})
 
 -- Better indenting
-map('n', '<', '<gv')
-map('n', '>', '>gv')
+map('v', '<', '<gv')
+map('v', '>', '>gv')
