@@ -38,13 +38,14 @@ return {
 	font_size = {{ .font_size }},
 	font = wezterm.font_with_fallback({
 	{{- if eq .device "work-macbook" }}
-		"JetbrainsMono Nerd Font"
+		"MonaspiceNe Nerd Font"
 		{{- else }}
 		"Monaspace Neon",
 		"Jetbrains Mono",
 		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
 		{{- end }}
 	}),
+	line_height = 1.2,
 
 	-- timeout_milliseconds defaults to 1000 and can be omitted
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
