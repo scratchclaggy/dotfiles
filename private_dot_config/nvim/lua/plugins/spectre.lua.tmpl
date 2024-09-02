@@ -1,0 +1,17 @@
+return {
+  'nvim-pack/nvim-spectre',
+  {{- if eq .device "work-macbook" }}
+  opts = {
+    replace_engine = {
+      ['sed'] = { cmd = 'sed', args = { '-i', '', '-E' } },
+    },
+  },
+  {{- end }}
+  keys = function()
+    local spectre = require 'spectre'
+
+    return {
+      { '<leader>sp', spectre.toggle, desc = 'Toggle Spectre' },
+    }
+  end,
+}
