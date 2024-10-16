@@ -1,3 +1,5 @@
+local prettier = { 'prettierd', 'prettier', stop_after_first = true }
+
 return {
   'stevearc/conform.nvim',
   opts = {
@@ -10,15 +12,15 @@ return {
       }
     end,
     formatters_by_ft = {
-      html = { { 'prettierd', 'prettier' } },
+      html = prettier,
       lua = { 'stylua' },
-      -- python = { "isort", "black" },
-      javascript = { { 'prettierd', 'prettier' } },
-      json = { { 'prettierd', 'prettier' } },
+      python = { 'isort', 'black', stop_after_first = true },
+      javascript = prettier,
+      json = prettier,
       rust = { 'rustfmt' },
-      typescript = { { 'prettierd', 'prettier' } },
-      typescriptreact = { { 'prettierd', 'prettier' } },
-      yaml = { { 'prettierd', 'prettier' } },
+      typescript = prettier,
+      typescriptreact = prettier,
+      yaml = prettier,
     },
   },
 }
