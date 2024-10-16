@@ -1,3 +1,11 @@
+customCommands:
+  - key: "v" # couldn't think of a better keybinding
+    prompts:
+      - type: "input"
+        title: "PR id:"
+    command: "hub pr checkout {{index .PromptResponses 0}}"
+    context: "localBranches"
+    loadingText: "checking out PR"
 gui:
   theme:
     lightTheme: false
