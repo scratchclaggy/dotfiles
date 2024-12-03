@@ -3,10 +3,10 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   opts = {
     root_dir = function(fname)
-      -- INFO: stealed from:
+      -- INFO: stolen from:
       -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/tsserver.lua#L22
       local util = require 'lspconfig.util'
-      local root_dir = util.root_pattern('pnpm-workspace.yaml', 'tsconfig.json', 'package.json', 'jsconfig.json', '.git')(fname)
+      local root_dir = util.root_pattern('pnpm-workspace.yaml', 'package.json')(fname)
 
       -- INFO: this is needed to make sure we don't pick up root_dir inside node_modules
       local node_modules_index = root_dir and root_dir:find('node_modules', 1, true)
@@ -16,5 +16,6 @@ return {
 
       return root_dir
     end,
+    single_file_support = false,
   },
 }

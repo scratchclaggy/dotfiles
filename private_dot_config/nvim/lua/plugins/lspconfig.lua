@@ -119,6 +119,9 @@ return {
           },
         },
       },
+      denols = {
+        filetypes = { 'deno' },
+      },
     }
 
     -- Ensure the servers and tools above are installed
