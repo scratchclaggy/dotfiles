@@ -1,0 +1,39 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/james/.dotfiles
+    - /Users/james/code/cnf
+    - /Users/james/code/powertools-lambda-typescript
+    - /Users/james/code/developer-platform
+    - /Users/james/code/process-identity
+    - /Users/james/code/identity-management
+    - /Users/james/code/hello-cloud-builder
+    - /Users/james/code/cloud-storage-demo
+    - /Users/james/code/assume-deployment-role
+    - /Users/james/code/cnf-product-cloud-builder
+    - /Users/james/code/aws-codebuild-run-build
+    - /Users/james/code/cyrus-cloudbuilder-test
+    - /Users/james/code/integration-hub
+    - /Users/james/code/cnf-cloudfront-pipeline
+    - /Users/james/code/cnf-loading-redirect-vanilla
+    - /Users/james/code/eai-event-adapter-jira
+    - /Users/james/code/clean-hub
+    - /Users/james/code/utils
+    - /Users/james/code/eai-ips
+    - /Users/james/code/zmk-ffkb
+    - /Users/james/code/aoc
+    - /Users/james/code/id-creator
+    - /Users/james/Documents/obsidian-vault
+    - /Users/james/code/workato-ecc
+startuppopupversion: 5
+lastversion: 0.44.1
+customcommandshistory:
+    - abort merge
+    - 'test: update tests to match refactor'
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 1
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
