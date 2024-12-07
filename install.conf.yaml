@@ -1,0 +1,14 @@
+- clean: ["~"]
+
+- link:
+    ~/.config/bat: bat
+    ~/.config/fd: fd
+    ~/.config/git: git
+    ~/.config/lazygit/config.yml: lazygit/config.yml
+    ~/.config/nvim: nvim
+    ~/.config/starship: starship
+    ~/.config/wezterm: wezterm
+    ~/.profile: profile
+    ~/.zprofile: zprofile
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc

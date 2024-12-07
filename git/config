@@ -1,6 +1,6 @@
 [user]
 	name = James van de Ven
-	email = {{ .email }}
+	email = james.vandeven@woodside.com
 	signingkey = ~/.ssh/id_ed25519.pub
 [core]
 	editor = nvim
@@ -21,7 +21,6 @@
 	rebase = false
 [rerere]
 	enabled = true
-{{- if eq .device "work-macbook" }}
 [commit]
 	gpgsign = true
 [gpg]
@@ -32,4 +31,3 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [maintenance]
 	repo = /Users/james/code/cloud-native-factory
-{{- end }}

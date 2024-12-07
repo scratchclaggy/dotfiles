@@ -5,9 +5,9 @@ setopt nomatch      # print errors when using invalid filename expansion
 zle_highlight=('paste:none') # Don't highlight text on paste
 
 # Enable programs
-{{- if eq .chezmoi.os "darwin" }}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
+if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 

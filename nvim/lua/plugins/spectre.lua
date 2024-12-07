@@ -1,12 +1,11 @@
 return {
   'nvim-pack/nvim-spectre',
-  {{- if eq .device "work-macbook" }}
-  opts = {
-    replace_engine = {
-      ['sed'] = { cmd = 'sed', args = { '-i', '', '-E' } },
-    },
-  },
-  {{- end }}
+  config = true,
+  -- opts = {
+  --   replace_engine = {
+  --     ['sed'] = vim.fn.has 'macunix' and { cmd = 'sed', args = { '-i', '', '-E' } },
+  --   } or nil,
+  -- },
   keys = function()
     local spectre = require 'spectre'
 
