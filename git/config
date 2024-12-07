@@ -1,11 +1,9 @@
 [user]
 	name = James van de Ven
-	email = james.vandeven@woodside.com
-	signingkey = ~/.ssh/id_ed25519.pub
+	email = hello@jamesvandeven.com
 [core]
 	editor = nvim
 	pager = less
-	excludesfile = $HOME/.config/git/gitignore_global
 	autocrlf = input
 	ignorecase = false
 [alias]
@@ -21,13 +19,9 @@
 	rebase = false
 [rerere]
 	enabled = true
-[commit]
-	gpgsign = true
-[gpg]
- 	format = ssh
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[maintenance]
-	repo = /Users/james/code/cloud-native-factory
+[includeIf "gitdir:~/woodside/"]
+	path = woodside
