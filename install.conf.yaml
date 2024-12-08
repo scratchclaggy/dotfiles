@@ -1,7 +1,11 @@
+# If you need to squash existing files
+# - defaults:
+#     link:
+#         force: true
+
 - clean: ["~"]
 
 - create:
-    - ~/.config/lazygit
     - ~/code
     - ~/woodside
 
@@ -9,7 +13,9 @@
     ~/.config/bat: bat
     ~/.config/fd: fd
     ~/.config/git: git
-    ~/.config/lazygit/config.yml: lazygit/config.yml
+    ~/.config/lazygit/config.yml:
+      create: true
+      path: lazygit/config.yml
     ~/.config/nvim: nvim
     ~/.config/starship: starship
     ~/.config/wezterm: wezterm
