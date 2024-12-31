@@ -15,7 +15,11 @@ return {
       'vim',
     },
     auto_install = true,
-    highlight = true,
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = { 'ruby' },
+    },
+    indent = { enable = true, disable = { 'ruby' } },
   },
   config = function(_, opts)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
