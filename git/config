@@ -17,6 +17,8 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[rebase]
+	updateRefs = true
 [rerere]
 	enabled = true
 [credential "https://github.com"]
