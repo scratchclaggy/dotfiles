@@ -47,3 +47,7 @@ map('n', 'q:', '<nop>', {})
 -- Better indenting
 map('v', '<', '<gv')
 map('v', '>', '>gv')
+
+-- Unimpaired inspired keymaps
+map('n', 'yow', '<cmd>setlocal wrap!<cr>', { desc = 'Toggle line [W]rap' })
+map('n', 'yos', '<cmd>setlocal spell!<cr>', { desc = 'Toggle [S]pell check' })
