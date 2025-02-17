@@ -57,9 +57,10 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>ss', builtin.buffers, { desc = '[S]earch existing buffers' })
+    vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch existing [B]uffers' })
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+    vim.keymap.set('n', '<leader>ss', builtin.git_status, { desc = '[S]earch git [S]tatus' })
     vim.keymap.set('n', '<leader><leader>', function()
       builtin.find_files { hidden = true }
     end, { desc = '[S]earch [F]iles' })
