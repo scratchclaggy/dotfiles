@@ -1,5 +1,6 @@
 return {
   'numToStr/Comment.nvim',
+  lazy = true,
   opts = function()
     local ts_comment = require 'ts_context_commentstring.integrations.comment_nvim'
 
