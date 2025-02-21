@@ -1,8 +1,2 @@
-- Disable q:
-- Git blame
-- Wrap
-- Unimpaired
-- Text objects
 - lualine
-- surrounds
 - luasnip
