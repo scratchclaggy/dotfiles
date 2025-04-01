@@ -1,4 +1,4 @@
-local prettier = { 'prettierd', 'prettier', stop_after_first = true }
+local prettier = { 'biome', 'prettierd', 'prettier', stop_after_first = true }
 
 return {
   'stevearc/conform.nvim',
