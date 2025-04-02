@@ -1,12 +1,12 @@
 return {
   'nvim-pack/nvim-spectre',
-  config = true,
   opts = function()
     if vim.fn.has 'macunix' == 1 then
       return {
         replace_engine = {
           ['sed'] = {
-            { cmd = 'sed', args = { '-i', '', '-E' } },
+            cmd = 'sed',
+            args = { '-i', '', '-E' },
           },
         },
       }
