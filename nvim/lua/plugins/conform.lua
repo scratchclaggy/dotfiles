@@ -13,10 +13,11 @@ return {
     end,
     formatters_by_ft = {
       html = prettier,
-      lua = { 'stylua' },
-      python = { 'isort', 'black', stop_after_first = true },
       javascript = prettier,
       json = prettier,
+      lua = { 'stylua' },
+      markdown = { 'prettier' },
+      python = { 'isort', 'black', stop_after_first = true },
       rust = { 'rustfmt' },
       typescript = prettier,
       typescriptreact = prettier,
