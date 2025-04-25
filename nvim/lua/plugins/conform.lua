@@ -15,6 +15,7 @@ return {
       html = prettier,
       javascript = prettier,
       json = prettier,
+      jsonc = prettier,
       lua = { 'stylua' },
       markdown = { 'prettier' },
       python = { 'isort', 'black', stop_after_first = true },
