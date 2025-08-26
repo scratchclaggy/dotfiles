@@ -26,12 +26,12 @@ alias lg='lazygit'
 alias python='python3'
 alias p='pnpm'
 
-if [[ $(command -v exa) ]]
+if [[ $(command -v eza) ]]
 then
-  alias ls='exa'
-  alias ll='exa -al'
-  alias la='exa -1a'
-  alias tree='exa --tree'
+  alias ls='eza'
+  alias ll='eza -al'
+  alias la='eza -1a'
+  alias tree='eza --tree'
 else
   echo "Install 'exa'"
   alias ll='ls -l'
