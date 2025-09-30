@@ -12,6 +12,7 @@
 - link:
     ~/.config/bat: bat
     ~/.config/fd: fd
+    ~/.config/fish: fish
     ~/.config/git: git
     ~/.config/lazygit/config.yml:
       create: true
