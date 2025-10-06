@@ -18,7 +18,8 @@
       create: true
       path: lazygit/config.yml
     ~/.config/nvim: nvim
-    ~/.config/starship: starship
+    ~/.config/starship.toml:
+      path: starship/config.toml
     ~/.config/wezterm: wezterm
     ~/.profile: profile
     ~/.zprofile: zprofile
