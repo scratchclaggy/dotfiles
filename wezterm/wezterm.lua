@@ -16,41 +16,41 @@ local direction_keys = {
   l = 'Right',
 }
 
-local function split_nav(resize_or_move, key)
-  return {
-    key = key,
-    mods = resize_or_move == 'resize' and 'META' or 'CTRL',
-    action = wezterm.action_callback(function(win, pane)
-      if is_vim(pane) then
-        -- pass the keys through to vim/nvim
-        win:perform_action({
-          SendKey = {
-            key = key,
-            mods = resize_or_move == 'resize' and 'META' or 'CTRL',
-          },
-        }, pane)
-      else
-        if resize_or_move == 'resize' then
-          win:perform_action(
-            { AdjustPaneSize = { direction_keys[key], 3 } },
-            pane
-          )
-        else
-          win:perform_action(
-            { ActivatePaneDirection = direction_keys[key] },
-            pane
-          )
-        end
-      end
-    end),
-  }
-end
+-- local function split_nav(resize_or_move, key)
+--   return {
+--     key = key,
+--     mods = resize_or_move == 'resize' and 'META' or 'CTRL',
+--     action = wezterm.action_callback(function(win, pane)
+--       if is_vim(pane) then
+--         -- pass the keys through to vim/nvim
+--         win:perform_action({
+--           SendKey = {
+--             key = key,
+--             mods = resize_or_move == 'resize' and 'META' or 'CTRL',
+--           },
+--         }, pane)
+--       else
+--         if resize_or_move == 'resize' then
+--           win:perform_action(
+--             { AdjustPaneSize = { direction_keys[key], 3 } },
+--             pane
+--           )
+--         else
+--           win:perform_action(
+--             { ActivatePaneDirection = direction_keys[key] },
+--             pane
+--           )
+--         end
+--       end
+--     end),
+--   }
+-- end
 
 return {
   color_scheme = 'Catppuccin Mocha',
   font_size = is_macos() and 16 or 14,
   font = wezterm.font_with_fallback {
-    'MonaspaceNeonFrozen',
+    'Monaspace Neon Frozen',
     { family = 'Symbols Nerd Font Mono', scale = 0.75 },
   },
   line_height = 1.2,
@@ -70,11 +70,10 @@ return {
       mods = 'LEADER|SHIFT',
       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
-    split_nav('move', 'h'),
-    split_nav('move', 'j'),
-    split_nav('move', 'k'),
-    split_nav('move', 'l'),
+    -- split_nav('move', 'h'),
+    -- split_nav('move', 'l'),
   },
+  window_decorations = 'RESIZE',
   window_padding = {
     top = 0,
     bottom = 0,
