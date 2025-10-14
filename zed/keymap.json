@@ -1,0 +1,87 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space w": "workspace::Save"
+    }
+  },
+  {
+    // Cutlass.nvim implementation - Delete operations go to blackhole register `_`
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "d": ["workspace::SendKeystrokes", "\" _ d"],
+      "shift-d": ["workspace::SendKeystrokes", "\" _ shift-d"],
+      "x": ["workspace::SendKeystrokes", "\" _ x"],
+      "shift-x": ["workspace::SendKeystrokes", "\" _ shift-x"],
+      "c": ["workspace::SendKeystrokes", "\" _ c"],
+      "shift-c": ["workspace::SendKeystrokes", "\" _ shift-c"]
+    }
+  },
+  {
+    // Cut operations with 'm' key (normal delete behavior)
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "m": "vim::PushDelete",
+      "shift-m": "vim::DeleteToEndOfLine"
+    }
+  },
+  {
+    // Cut operations with 'm' key in visual mode
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "m": "vim::VisualDelete"
+    }
+  },
+  {
+    // Handle "mm" - cut whole line when m operator is followed by m
+    "context": "Editor && vim_mode == operator && vim_operator == d",
+    "bindings": {
+      "m": "vim::CurrentLine"
+    }
+  },
+  {
+    // Handle "ss" - substitute whole line when s operator is followed by s
+    "context": "Editor && vim_mode == operator && vim_operator == gR",
+    "bindings": {
+      "s": "vim::CurrentLine"
+    }
+  },
+  {
+    // Substitute.nvim keybinds implementation
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "s": "vim::PushReplaceWithRegister",
+      "shift-s": ["workspace::SendKeystrokes", "g R $"]
+    }
+  },
+  {
+    // s in visual mode - substitute visual selection with register
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "s": ["vim::Paste", { "preserve_clipboard": false }]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "ctrl-h": ["workspace::SendKeystrokes", "ctrl-w h"],
+      "ctrl-j": ["workspace::SendKeystrokes", "ctrl-w j"],
+      "ctrl-k": ["workspace::SendKeystrokes", "ctrl-w k"],
+      "ctrl-l": ["workspace::SendKeystrokes", "ctrl-w l"]
+    }
+  }
+]

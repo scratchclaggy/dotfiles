@@ -21,6 +21,7 @@
     ~/.config/starship.toml:
       path: starship/config.toml
     ~/.config/wezterm: wezterm
+    ~/.config/zed: zed
     ~/.profile: profile
     ~/.zprofile: zprofile
     ~/.zshenv: zshenv
