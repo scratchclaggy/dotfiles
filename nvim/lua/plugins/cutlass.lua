@@ -1,6 +1,6 @@
 return {
   'gbprod/cutlass.nvim',
-  event = 'InsertEnter',
+  event = 'VimEnter',
   opts = {
     cut_key = 'm',
   },

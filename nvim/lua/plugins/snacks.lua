@@ -2,9 +2,16 @@ return {
   'folke/snacks.nvim',
   ---@type snacks.Config
   opts = {
-    lazygit = {},
+    lazygit = {
+      win = {
+        position = 'float',
+      },
+    },
     terminal = {
-      shell = "fish",
+      shell = 'fish',
+      win = {
+        position = 'right',
+      },
     },
   },
   keys = {

@@ -5,8 +5,8 @@ return {
     'javascript',
     'lua',
     'markdown',
-    'tsx',
     'typescript',
+    'typescriptreact',
     'vim',
   },
   dependencies = {
@@ -34,6 +34,12 @@ return {
         map('go', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
         map('gw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
         map('glt', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype Definition')
+
+        -- Diagnostic navigation
+        map(']d', vim.diagnostic.goto_next, 'Next [D]iagnostic')
+        map('[d', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
+        map('<leader>e', vim.diagnostic.open_float, 'Show diagnostic [E]rror messages')
+        map('<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client

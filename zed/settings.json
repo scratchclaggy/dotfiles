@@ -7,16 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tab_size": 4,
+  "hard_tabs": false,
+  "edit_predictions": {
+    "mode": "subtle"
+  },
   "features": {
     "edit_prediction_provider": "copilot"
   },
   "icon_theme": "Catppuccin Mocha",
   "agent": {
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5"
+      "model": "claude-sonnet-4.5"
     },
+    "always_allow_tool_actions": true,
     "model_parameters": []
   },
   "buffer_font_family": "Monaspace Neon Frozen",
@@ -26,7 +31,7 @@
     "metrics": false
   },
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
