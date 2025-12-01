@@ -55,6 +55,11 @@ return {
       mods = 'LEADER',
       action = wezterm.action.ActivatePaneDirection 'Right',
     },
+    {
+      key = 'a',
+      mods = 'LEADER|CTRL',
+      action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+    },
   },
   window_decorations = 'RESIZE',
   window_padding = {
