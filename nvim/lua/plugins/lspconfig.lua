@@ -3,6 +3,7 @@ return {
   ft = {
     'html',
     'javascript',
+    'kotlin',
     'lua',
     'markdown',
     'typescript',
