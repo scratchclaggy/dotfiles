@@ -19,17 +19,20 @@ return {
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
   opts = {
-    keymap = { preset = 'default' },
     appearance = { nerd_font_variant = 'normal' },
-    completion = { documentation = { auto_show = false, auto_show_delay_ms = 500 } },
+    completion = {
+      accept = { auto_brackets = { enabled = true } },
+      documentation = { auto_show = false, auto_show_delay_ms = 500 },
+    },
+    fuzzy = { implementation = 'lua' },
+    keymap = { preset = 'default' },
+    signature = { enabled = true },
+    snippets = { preset = 'luasnip' },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },
-    snippets = { preset = 'luasnip' },
-    fuzzy = { implementation = 'lua' },
-    signature = { enabled = true },
   },
 }
