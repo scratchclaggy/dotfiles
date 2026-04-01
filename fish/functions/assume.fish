@@ -1,3 +1,3 @@
 function assume
-    source (brew --prefix)/bin/assume.fish $argv
+    source /opt/homebrew/bin/assume.fish $argv
 end
