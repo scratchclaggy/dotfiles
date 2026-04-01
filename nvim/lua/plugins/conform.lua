@@ -1,21 +1,7 @@
-local prettier = { 'prettier', 'biome', stop_after_first = true }
+local prettier = { 'biome', 'prettier', stop_after_first = true }
 
 return {
   'stevearc/conform.nvim',
-  ft = {
-    'html',
-    'javascript',
-    'json',
-    'jsonc',
-    'kotlin',
-    'lua',
-    'markdown',
-    'python',
-    'rust',
-    'typescript',
-    'typescriptreact',
-    'yaml',
-  },
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)

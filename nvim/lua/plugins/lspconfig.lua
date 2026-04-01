@@ -1,17 +1,5 @@
 return {
   'neovim/nvim-lspconfig',
-  ft = {
-    'beancount',
-    'html',
-    'javascript',
-    'kotlin',
-    'lua',
-    'markdown',
-    'python',
-    'typescript',
-    'typescriptreact',
-    'vim',
-  },
   dependencies = {
     { 'mason-org/mason.nvim', opts = {} },
     'mason-org/mason-lspconfig.nvim',
