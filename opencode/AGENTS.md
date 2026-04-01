@@ -1,0 +1,1 @@
+When making plans, divide meaningful work into distinct phases and include checkboxes. After completing a phase or work, update the plan as required and then wait for review. DO NOT continue onto the next phase until instructed to.
