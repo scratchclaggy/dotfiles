@@ -3,7 +3,7 @@
 	email = hello@jamesvandeven.com
 [core]
 	editor = nvim
-	pager = less
+	pager = cat
 	autocrlf = input
 	ignorecase = false
 [alias]
