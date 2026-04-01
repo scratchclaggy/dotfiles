@@ -65,3 +65,9 @@ vim.opt.confirm = true
 
 -- Disable wrap
 vim.opt.wrap = false
+
+-- Treesitter-based folding
+-- See `:help fold`
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevel = 99 -- open all folds by default

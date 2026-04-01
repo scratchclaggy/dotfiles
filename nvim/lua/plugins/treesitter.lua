@@ -2,6 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   lazy = false,
+  branch = 'main',
   main = 'nvim-treesitter.config',
   config = function()
     local function treesitter_try_attach(buf, language)
@@ -10,9 +11,6 @@ return {
       end
 
       vim.treesitter.start(buf, language)
-
-      -- enables treesitter based folds
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
       -- enables treesitter based indentation
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

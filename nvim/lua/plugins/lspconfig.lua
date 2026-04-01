@@ -18,36 +18,35 @@ return {
 
         map('gln', vim.lsp.buf.rename, 'Re[n]ame')
         map('gla', vim.lsp.buf.code_action, 'Trigger Code [A]ction', { 'n', 'x' })
-        map('glr', require('telescope.builtin').lsp_references, 'Goto [R]eferences')
-        map('gli', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
-        map('gld', require('telescope.builtin').lsp_definitions, 'Goto [D]efinition')
+        map('glr', function()
+          require('telescope.builtin').lsp_references()
+        end, 'Goto [R]eferences')
+        map('gli', function()
+          require('telescope.builtin').lsp_implementations()
+        end, 'Goto [I]mplementation')
+        map('gld', function()
+          require('telescope.builtin').lsp_definitions()
+        end, 'Goto [D]efinition')
         map('glD', vim.lsp.buf.declaration, '[G]oto [D]eclaration') -- i.e. Go to header file...
-        map('go', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
-        map('gw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
-        map('glt', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype Definition')
+        map('go', function()
+          require('telescope.builtin').lsp_document_symbols()
+        end, 'Open Document Symbols')
+        map('gw', function()
+          require('telescope.builtin').lsp_dynamic_workspace_symbols()
+        end, 'Open [W]orkspace Symbols')
+        map('glt', function()
+          require('telescope.builtin').lsp_type_definitions()
+        end, 'Goto [T]ype Definition')
 
         -- Diagnostic navigation
-        map(']d', vim.diagnostic.goto_next, 'Next [D]iagnostic')
-        map('[d', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
+        map(']d', function() vim.diagnostic.jump { count = 1 } end, 'Next [D]iagnostic')
+        map('[d', function() vim.diagnostic.jump { count = -1 } end, 'Previous [D]iagnostic')
         map('<leader>e', vim.diagnostic.open_float, 'Show diagnostic [E]rror messages')
         map('<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
 
-        -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
-        local function client_supports_method(client, method, bufnr)
-          if vim.fn.has 'nvim-0.11' == 1 then
-            return client:supports_method(method, bufnr)
-          else
-            return client.supports_method(method, { bufnr = bufnr })
-          end
-        end
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -80,9 +79,10 @@ return {
     })
 
     vim.diagnostic.config {
+      update_in_insert = false,
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
-      underline = { severity = vim.diagnostic.severity.ERROR },
+      underline = { severity = { min = vim.diagnostic.severity.WARN } },
       signs = vim.g.have_nerd_font and {
         text = {
           [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -104,46 +104,39 @@ return {
           return diagnostic_message[diagnostic.severity]
         end,
       },
+      jump = { on_jump = function() vim.diagnostic.open_float() end },
     }
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-    --  Add any additional override configuration in the following tables. Available keys are:
-    --  - cmd (table): Override the default command used to start the server
-    --  - filetypes (table): Override the default list of associated filetypes for the server
-    --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-    --  - settings (table): Override the default settings passed when initializing the server.
-    --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    local servers = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-          },
+    -- Set capabilities globally so all servers inherit them
+    vim.lsp.config('*', { capabilities = capabilities })
+
+    -- Per-server configuration overrides
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          completion = { callSnippet = 'Replace' },
         },
       },
-      denols = {
-        root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
-        workspace_required = true,
-      },
-      biome = {
-        root_dir = require('lspconfig.util').root_pattern 'biome.json',
-        workspace_required = true,
-      },
-    }
+    })
+
+    vim.lsp.config('denols', {
+      root_markers = { 'deno.json', 'deno.jsonc' },
+      workspace_required = true,
+    })
+
+    vim.lsp.config('biome', {
+      root_markers = { 'biome.json' },
+      workspace_required = true,
+    })
+
+    require('mason-tool-installer').setup { ensure_installed = {} }
 
     require('mason-lspconfig').setup {
-      ensure_installed = {}, -- explicitly set to an empty table, use 'mason-tool-installer' if you want to pre-install
+      ensure_installed = {},
       automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
+      automatic_enable = true,
     }
   end,
 }

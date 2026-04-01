@@ -1,13 +1,31 @@
 return {
   'gbprod/substitute.nvim',
   opts = {},
-  keys = function()
-    local substitute = require 'substitute'
-    return {
-      { 's', substitute.operator },
-      { 'ss', substitute.line },
-      { 'S', substitute.eol },
-      { 's', substitute.visual, mode = 'x' },
-    }
-  end,
+  keys = {
+    {
+      's',
+      function()
+        require('substitute').operator()
+      end,
+    },
+    {
+      'ss',
+      function()
+        require('substitute').line()
+      end,
+    },
+    {
+      'S',
+      function()
+        require('substitute').eol()
+      end,
+    },
+    {
+      's',
+      function()
+        require('substitute').visual()
+      end,
+      mode = 'x',
+    },
+  },
 }

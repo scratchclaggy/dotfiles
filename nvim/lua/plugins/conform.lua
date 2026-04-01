@@ -1,4 +1,4 @@
-local prettier = { 'biome', 'prettier', stop_after_first = true }
+local web = { 'biome', 'prettier', stop_after_first = true }
 
 return {
   'stevearc/conform.nvim',
@@ -6,24 +6,30 @@ return {
     notify_on_error = false,
     format_on_save = function(bufnr)
       local disable_filetypes = { c = true, cpp = true }
+
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        return nil
+      end
+
       return {
         timeout_ms = 1500,
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+        lsp_format = 'fallback',
       }
     end,
     formatters_by_ft = {
-      html = prettier,
-      javascript = prettier,
-      json = prettier,
-      jsonc = prettier,
+      gritql = { 'biome' },
+      html = web,
+      javascript = web,
+      json = web,
+      jsonc = web,
       lua = { 'stylua' },
       kotlin = { 'ktfmt' },
       markdown = { 'prettier' },
       python = { 'isort', 'black', stop_after_first = true },
       rust = { 'rustfmt' },
-      typescript = prettier,
-      typescriptreact = prettier,
-      yaml = prettier,
+      typescript = web,
+      typescriptreact = web,
+      yaml = { 'prettier' },
     },
   },
 }

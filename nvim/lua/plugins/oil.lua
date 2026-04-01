@@ -10,6 +10,6 @@ return {
     view_options = { show_hidden = true },
   },
   keys = {
-    { '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' } },
+    { '-', function() require('oil').open() end, desc = 'Open parent directory' },
   },
 }

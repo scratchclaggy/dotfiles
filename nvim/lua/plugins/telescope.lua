@@ -26,62 +26,110 @@ return {
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
   end,
-  keys = function()
-    local builtin = require 'telescope.builtin'
-
-    return {
-      { '<leader>sb', builtin.buffers, desc = '[S]earch existing [B]uffers' },
-      { '<leader>sh', builtin.help_tags, desc = '[S]earch [H]elp' },
-      { '<leader>sk', builtin.keymaps, desc = '[S]earch [K]eymaps' },
-      { '<leader>ss', builtin.git_status, desc = '[S]earch git [S]tatus' },
-      {
-        '<leader><leader>',
-        function()
-          builtin.find_files { hidden = true }
-        end,
-        desc = '[S]earch [F]iles',
-      },
-      { '<leader>st', builtin.builtin, desc = '[S]earch Select [T]elescope' },
-      { '<leader>sw', builtin.grep_string, desc = '[S]earch current [W]ord' },
-      { '<leader>sg', builtin.live_grep, desc = '[S]earch by [G]rep' },
-      { '<leader>sd', builtin.diagnostics, desc = '[S]earch [D]iagnostics' },
-      { '<leader>sr', builtin.resume, desc = '[S]earch [R]esume' },
-      { '<leader>s.', builtin.oldfiles, desc = '[S]earch Recent Files ("." for repeat)' },
-
-      -- Slightly advanced example of overriding default behavior and theme
-      {
-        '<leader>/',
-        function()
-          -- You can pass additional configuration to telescope to change theme, layout, etc.
-          builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-            winblend = 10,
-            previewer = false,
-          })
-        end,
-        desc = '[/] Fuzzily search in current buffer',
-      },
-
-      -- Also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      {
-        '<leader>s/',
-        function()
-          builtin.live_grep {
-            grep_open_files = true,
-            prompt_title = 'Live Grep in Open Files',
-          }
-        end,
-        desc = '[S]earch [/] in Open Files',
-      },
-
-      -- Shortcut for searching your neovim configuration files
-      {
-        '<leader>sn',
-        function()
-          builtin.find_files { cwd = vim.fn.stdpath 'config' }
-        end,
-        desc = '[S]earch [N]eovim files',
-      },
-    }
-  end,
+  keys = {
+    {
+      '<leader>sb',
+      function()
+        require('telescope.builtin').buffers()
+      end,
+      desc = '[S]earch existing [B]uffers',
+    },
+    {
+      '<leader>sh',
+      function()
+        require('telescope.builtin').help_tags()
+      end,
+      desc = '[S]earch [H]elp',
+    },
+    {
+      '<leader>sk',
+      function()
+        require('telescope.builtin').keymaps()
+      end,
+      desc = '[S]earch [K]eymaps',
+    },
+    {
+      '<leader>ss',
+      function()
+        require('telescope.builtin').git_status()
+      end,
+      desc = '[S]earch git [S]tatus',
+    },
+    {
+      '<leader><leader>',
+      function()
+        require('telescope.builtin').find_files { hidden = true }
+      end,
+      desc = '[S]earch [F]iles',
+    },
+    {
+      '<leader>st',
+      function()
+        require('telescope.builtin').builtin()
+      end,
+      desc = '[S]earch Select [T]elescope',
+    },
+    {
+      '<leader>sw',
+      function()
+        require('telescope.builtin').grep_string()
+      end,
+      desc = '[S]earch current [W]ord',
+    },
+    {
+      '<leader>sg',
+      function()
+        require('telescope.builtin').live_grep()
+      end,
+      desc = '[S]earch by [G]rep',
+    },
+    {
+      '<leader>sd',
+      function()
+        require('telescope.builtin').diagnostics()
+      end,
+      desc = '[S]earch [D]iagnostics',
+    },
+    {
+      '<leader>sr',
+      function()
+        require('telescope.builtin').resume()
+      end,
+      desc = '[S]earch [R]esume',
+    },
+    {
+      '<leader>s.',
+      function()
+        require('telescope.builtin').oldfiles()
+      end,
+      desc = '[S]earch Recent Files ("." for repeat)',
+    },
+    {
+      '<leader>/',
+      function()
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+          winblend = 10,
+          previewer = false,
+        })
+      end,
+      desc = '[/] Fuzzily search in current buffer',
+    },
+    {
+      '<leader>s/',
+      function()
+        require('telescope.builtin').live_grep {
+          grep_open_files = true,
+          prompt_title = 'Live Grep in Open Files',
+        }
+      end,
+      desc = '[S]earch [/] in Open Files',
+    },
+    {
+      '<leader>sn',
+      function()
+        require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = '[S]earch [N]eovim files',
+    },
+  },
 }

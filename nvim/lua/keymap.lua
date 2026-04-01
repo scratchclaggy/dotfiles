@@ -10,7 +10,7 @@ vim.g.maplocalleader = ' '
 local map = vim.keymap.set
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', vim.cmd.nohlsearch)
 
 -- better up/down
 map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
@@ -19,8 +19,8 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, 
 map({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
 -- Session utilities
-map('n', '<leader>js', '<cmd>qa<cr>', { desc = '[J]ump [s]hip' })
-map('n', '<leader>ww', '<cmd>w<cr>', { desc = '[W]rite' })
+map('n', '<leader>js', vim.cmd.qa, { desc = '[J]ump [s]hip' })
+map('n', '<leader>ww', vim.cmd.write, { desc = '[W]rite' })
 
 --  See `:help wincmd` for a list of all window commands
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -35,5 +35,5 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Unimpaired inspired keymaps
-map('n', 'yow', '<cmd>setlocal wrap!<cr>', { desc = 'Toggle line [W]rap' })
-map('n', 'yos', '<cmd>setlocal spell!<cr>', { desc = 'Toggle [S]pell check' })
+map('n', 'yow', function() vim.wo.wrap = not vim.wo.wrap end, { desc = 'Toggle line [W]rap' })
+map('n', 'yos', function() vim.wo.spell = not vim.wo.spell end, { desc = 'Toggle [S]pell check' })
