@@ -17,16 +17,12 @@ return {
   keys = {
     {
       '<leader>gg',
-      function()
-        Snacks.lazygit()
-      end,
+      function() Snacks.lazygit() end,
       desc = 'Lazygit',
     },
     {
       '<leader>tt',
-      function()
-        Snacks.terminal()
-      end,
+      function() Snacks.terminal() end,
       desc = 'Toggle Terminal',
     },
   },

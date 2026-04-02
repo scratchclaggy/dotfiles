@@ -1,38 +1,41 @@
 return {
   'saghen/blink.cmp',
-  event = 'VeryLazy',
+  event = 'VimEnter',
   version = '1.*',
   dependencies = {
     {
       'L3MON4D3/LuaSnip',
       version = '2.*',
       build = (function()
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-          return
-        end
+        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then return end
         return 'make install_jsregexp'
       end)(),
       opts = {},
     },
-    'folke/lazydev.nvim',
   },
+  config = function(_, opts)
+    require('blink.cmp').setup(opts)
+
+    -- Register blink.cmp capabilities for all LSP servers.
+    -- This runs when blink.cmp loads (deferred via event = 'VimEnter'),
+    -- avoiding a synchronous require in lspconfig's config function.
+    vim.lsp.config('*', {
+      capabilities = require('blink.cmp').get_lsp_capabilities(),
+    })
+  end,
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
   opts = {
-    appearance = { nerd_font_variant = 'normal' },
+    keymap = { preset = 'default' },
+    appearance = { nerd_font_variant = 'mono' },
     completion = {
-      accept = { auto_brackets = { enabled = true } },
       documentation = { auto_show = false, auto_show_delay_ms = 500 },
     },
-    fuzzy = { implementation = 'lua' },
-    keymap = { preset = 'default' },
-    signature = { enabled = true },
-    snippets = { preset = 'luasnip' },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
-      providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-      },
+      default = { 'lsp', 'path', 'snippets' },
     },
+    snippets = { preset = 'luasnip' },
+    fuzzy = { implementation = 'lua' },
+    signature = { enabled = true },
   },
 }

@@ -4,9 +4,7 @@ return {
   keys = {
     {
       '<leader>f',
-      function()
-        require('grug-far').open()
-      end,
+      function() require('grug-far').open() end,
       desc = '[F]ind (and replace)',
     },
   },

@@ -4,27 +4,19 @@ return {
   keys = {
     {
       's',
-      function()
-        require('substitute').operator()
-      end,
+      function() require('substitute').operator() end,
     },
     {
       'ss',
-      function()
-        require('substitute').line()
-      end,
+      function() require('substitute').line() end,
     },
     {
       'S',
-      function()
-        require('substitute').eol()
-      end,
+      function() require('substitute').eol() end,
     },
     {
       's',
-      function()
-        require('substitute').visual()
-      end,
+      function() require('substitute').visual() end,
       mode = 'x',
     },
   },
