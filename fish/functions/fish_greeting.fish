@@ -37,7 +37,7 @@ function fish_greeting
 
     if test $current_hour -lt 11
         printf "%s\n" $_greeting_morning
-    else if test $current_hour -lt 13
+    else if test $current_hour -lt 14
         printf "%s\n" $_greeting_midday
     else
         printf "%s\n" $_greeting_afternoon
