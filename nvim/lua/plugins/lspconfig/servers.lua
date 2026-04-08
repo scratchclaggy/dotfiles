@@ -7,7 +7,7 @@ local servers = {
         if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
       end
 
-      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua --[[@as table]], {
         runtime = {
           version = 'LuaJIT',
           path = { 'lua/?.lua', 'lua/?/init.lua' },
@@ -34,12 +34,20 @@ local servers = {
     workspace_required = true,
   },
   jsonls = {},
-  tailwindcss = require 'plugins.lspconfig.tailwindcss',
+  tailwindcss = {
+    settings = {
+      tailwindCSS = {
+        experimental = {
+          configFile = 'app/tailwind.css',
+        },
+      },
+    },
+  },
   tsgo = {
     root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     workspace_required = true,
     on_attach = function(client, bufnr)
-      if vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc' }) then client.stop() end
+      if vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc' }) then client:stop() end
     end,
   },
 }
