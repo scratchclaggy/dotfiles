@@ -9,11 +9,11 @@ return {
 
       if disable_filetypes[vim.bo[bufnr].filetype] then return nil end
 
-      return {
-        timeout_ms = 1500,
-        lsp_format = 'fallback',
-      }
+      return { timeout_ms = 1500 }
     end,
+    default_format_opts = {
+      lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
+    },
     formatters_by_ft = {
       gritql = { 'biome' },
       html = web,
