@@ -41,15 +41,7 @@ local servers = {
     workspace_required = true,
   },
   jsonls = {},
-  tailwindcss = {
-    settings = {
-      tailwindCSS = {
-        experimental = {
-          configFile = 'app/tailwind.css',
-        },
-      },
-    },
-  },
+  tailwindcss = {},
   tsgo = {
     root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     workspace_required = true,
