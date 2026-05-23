@@ -14,19 +14,17 @@ set -gx PYTHONSTARTUP $XDG_CONFIG_HOME/python/pythonrc
 set -gx PYENV_ROOT $HOME/.pyenv
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
-set -gx VOLTA_HOME $HOME/.volta
+
+brew shellenv | source
+mise activate fish | source
 
 fish_add_path $HOME/.bun/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.local/scripts
 fish_add_path $GOPATH/bin
-fish_add_path $VOLTA_HOME/bin
 fish_add_path $CARGO_HOME/bin
 fish_add_path /usr/local/go/bin
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-starship init fish | source
 zoxide init fish | source
 fish_config theme choose catppuccin-mocha
 
