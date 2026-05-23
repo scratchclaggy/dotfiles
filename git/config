@@ -1,11 +1,12 @@
-[user]
-	name = James van de Ven
-	email = hello@jamesvandeven.com
 [core]
 	editor = nvim
 	pager = cat
 	autocrlf = input
 	ignorecase = false
+[user]
+	name = James van de Ven
+[include]
+    path = ./user
 [alias]
 	br = branch
 	bl = branch -l
@@ -25,5 +26,3 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[includeIf "gitdir:~/woodside/"]
-	path = woodside
