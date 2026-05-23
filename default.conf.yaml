@@ -1,0 +1,17 @@
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- link:
+    ~/.config/bat: bat
+    ~/.config/fd: fd
+    ~/.config/fish: fish
+    ~/.config/ghostty: ghostty
+    ~/.config/git: git
+    ~/.config/lazygit/config.yml:
+      create: true
+      path: lazygit/config.yml
+    ~/.config/nvim: nvim
+    ~/.config/opencode: opencode
