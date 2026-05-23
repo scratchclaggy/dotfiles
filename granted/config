@@ -1,0 +1,7 @@
+DefaultBrowser = "FIREFOX"
+CustomBrowserPath = "/opt/homebrew/bin/firefox"
+CustomSSOBrowserPath = "/Users/james/.granted/edge-cs-profile.sh"
+Ordering = "Frecency"
+
+[Keyring]
+  Backend = "keychain"
