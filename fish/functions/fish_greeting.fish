@@ -41,5 +41,7 @@ function fish_greeting
         printf "%s\n" $_greeting_midday
     else
         printf "%s\n" $_greeting_afternoon
+        echo
+        echo "(╭☞•́⍛•̀)╭☞それな界隈"
     end
 end
