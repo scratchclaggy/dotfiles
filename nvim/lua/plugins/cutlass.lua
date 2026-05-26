@@ -1,6 +1,5 @@
-return {
-  'gbprod/cutlass.nvim',
-  opts = {
-    cut_key = 'm',
-  },
+vim.pack.add { Gh 'gbprod/cutlass.nvim' }
+
+require('cutlass').setup {
+  cut_key = 'm',
 }

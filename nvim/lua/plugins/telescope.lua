@@ -1,143 +1,71 @@
-return {
-  'nvim-telescope/telescope.nvim',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make',
-      cond = function() return vim.fn.executable 'make' == 1 end,
-    },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons' },
-  },
-  event = 'VimEnter',
-  config = function()
-    require('telescope').setup {
-      defaults = {
-        file_ignore_patterns = { 'node_modules', '.git/' },
-      },
-      extensions = {
-        ['ui-select'] = {
-          require('telescope.themes').get_dropdown(),
-        },
-      },
-    }
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
+---@type (string|vim.pack.Spec)[]
+local telescope_plugins = {
+  Gh 'nvim-lua/plenary.nvim',
+  Gh 'nvim-telescope/telescope.nvim',
+  Gh 'nvim-telescope/telescope-ui-select.nvim',
+  Gh 'nvim-telescope/telescope-fzf-native.nvim',
+}
 
-    -- LSP keymaps via Telescope (runs per-buffer on LspAttach)
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('telescope-lsp-attach', { clear = true }),
-      callback = function(event)
-        local builtin = require 'telescope.builtin'
-        local buf = event.buf
+vim.pack.add(telescope_plugins)
 
-        -- Find references for the word under your cursor.
-        vim.keymap.set('n', 'glr', builtin.lsp_references, { buffer = buf, desc = 'LSP: Goto [R]eferences' })
-
-        -- Jump to the implementation of the word under your cursor.
-        vim.keymap.set('n', 'gli', builtin.lsp_implementations, { buffer = buf, desc = 'LSP: Goto [I]mplementation' })
-
-        -- Jump to the definition of the word under your cursor.
-        vim.keymap.set('n', 'gld', builtin.lsp_definitions, { buffer = buf, desc = 'LSP: Goto [D]efinition' })
-
-        -- Fuzzy find all the symbols in your current document.
-        vim.keymap.set('n', 'gO', builtin.lsp_document_symbols, { buffer = buf, desc = 'LSP: Open Document Symbols' })
-
-        -- Fuzzy find all the symbols in your current workspace.
-        vim.keymap.set('n', 'gW', builtin.lsp_dynamic_workspace_symbols, { buffer = buf, desc = 'LSP: Open Workspace Symbols' })
-
-        -- Jump to the type of the word under your cursor.
-        vim.keymap.set('n', 'glt', builtin.lsp_type_definitions, { buffer = buf, desc = 'LSP: Goto [T]ype Definition' })
-      end,
-    })
-  end,
-  keys = {
-    {
-      '<leader>sb',
-      function() require('telescope.builtin').buffers() end,
-      desc = '[S]earch existing [B]uffers',
-    },
-    {
-      '<leader>sh',
-      function() require('telescope.builtin').help_tags() end,
-      desc = '[S]earch [H]elp',
-    },
-    {
-      '<leader>sk',
-      function() require('telescope.builtin').keymaps() end,
-      desc = '[S]earch [K]eymaps',
-    },
-    {
-      '<leader>ss',
-      function() require('telescope.builtin').git_status() end,
-      desc = '[S]earch git [S]tatus',
-    },
-    {
-      '<leader><leader>',
-      function() require('telescope.builtin').find_files { hidden = true } end,
-      desc = '[S]earch [F]iles',
-    },
-    {
-      '<leader>st',
-      function() require('telescope.builtin').builtin() end,
-      desc = '[S]earch Select [T]elescope',
-    },
-    {
-      '<leader>sw',
-      function() require('telescope.builtin').grep_string() end,
-      mode = { 'n', 'v' },
-      desc = '[S]earch current [W]ord',
-    },
-    {
-      '<leader>sg',
-      function() require('telescope.builtin').live_grep() end,
-      desc = '[S]earch by [G]rep',
-    },
-    {
-      '<leader>sd',
-      function() require('telescope.builtin').diagnostics() end,
-      desc = '[S]earch [D]iagnostics',
-    },
-    {
-      '<leader>sr',
-      function() require('telescope.builtin').resume() end,
-      desc = '[S]earch [R]esume',
-    },
-    {
-      '<leader>s.',
-      function() require('telescope.builtin').oldfiles() end,
-      desc = '[S]earch Recent Files ("." for repeat)',
-    },
-    {
-      '<leader>/',
-      function()
-        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end,
-      desc = '[/] Fuzzily search in current buffer',
-    },
-    {
-      '<leader>s/',
-      function()
-        require('telescope.builtin').live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end,
-      desc = '[S]earch [/] in Open Files',
-    },
-    {
-      '<leader>sc',
-      function() require('telescope.builtin').commands() end,
-      desc = '[S]earch [C]ommands',
-    },
-    {
-      '<leader>sn',
-      function() require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' } end,
-      desc = '[S]earch [N]eovim files',
-    },
+require('telescope').setup {
+  extensions = {
+    ['ui-select'] = { require('telescope.themes').get_dropdown() },
   },
 }
+
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'ui-select')
+
+local builtin = require 'telescope.builtin'
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('telescope-lsp-attach', { clear = true }),
+  callback = function(event)
+    local buf = event.buf
+
+    vim.keymap.set('n', 'grr', builtin.lsp_references, { buffer = buf, desc = '[G]oto [R]eferences' })
+    vim.keymap.set('n', 'gri', builtin.lsp_implementations, { buffer = buf, desc = '[G]oto [I]mplementation' })
+    vim.keymap.set('n', 'grd', builtin.lsp_definitions, { buffer = buf, desc = '[G]oto [D]efinition' })
+    vim.keymap.set('n', 'gO', builtin.lsp_document_symbols, { buffer = buf, desc = 'Open Document Symbols' })
+    vim.keymap.set('n', 'gW', builtin.lsp_dynamic_workspace_symbols, { buffer = buf, desc = 'Open Workspace Symbols' })
+    vim.keymap.set('n', 'grt', builtin.lsp_type_definitions, { buffer = buf, desc = '[G]oto [T]ype Definition' })
+  end,
+})
+
+vim.keymap.set(
+  'n',
+  '<leader>/',
+  function()
+    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      winblend = 10,
+      previewer = false,
+    })
+  end,
+  { desc = '[/] Fuzzily search in current buffer' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>s/',
+  function()
+    builtin.live_grep {
+      grep_open_files = true,
+      prompt_title = 'Live Grep in Open Files',
+    }
+  end,
+  { desc = '[S]earch [/] in Open Files' }
+)
+
+vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end, { desc = '[S]earch [N]eovim files' })

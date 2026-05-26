@@ -1,20 +1,16 @@
--- [[ My neovim config ]]
+vim.loader.enable()
 
-require 'option'
-require 'keymap'
-require 'autocmd'
-require 'lazy-bootstrap'
-require('lazy').setup('plugins', {
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        'netrwPlugin',
-        'gzip',
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
-      },
-    },
-  },
-})
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+require 'colorscheme'
+
+require 'globals'
+require 'options'
+require 'diagnostic'
+require 'keymaps'
+require 'autocommands'
+require 'commands'
+require 'post-install'
+
+require 'plugins'
