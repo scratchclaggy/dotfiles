@@ -5,6 +5,7 @@ require('conform').setup {
   format_on_save = function(bufnr)
     local enabled_filetypes = {
       lua = true,
+      markdown = true,
       typescript = true,
     }
     if enabled_filetypes[vim.bo[bufnr].filetype] then
@@ -18,7 +19,8 @@ require('conform').setup {
   },
   formatters_by_ft = {
     { lua = 'stylua' },
-    { typescript = 'biome' },
+    { markdown = 'markdownlint' },
+    { typescript = { 'oxfmt', 'biome' } },
   },
 }
 
