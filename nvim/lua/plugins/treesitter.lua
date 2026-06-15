@@ -25,7 +25,7 @@ local function treesitter_try_attach(buf, language)
 
 	vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 	vim.wo.foldmethod = 'expr'
-	vim.wo.foldlevel = 3
+	vim.wo.foldlevel = 99
 
 	local has_indent_query = vim.treesitter.query.get(language, 'indents') ~= nil
 
