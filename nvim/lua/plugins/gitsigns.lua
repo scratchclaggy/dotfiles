@@ -35,6 +35,11 @@ require('gitsigns').setup {
       end
     end, { desc = 'Jump to previous git [c]hange' })
 
+    map('n', ']h', function() gitsigns.nav_hunk 'next' end, { desc = 'Jump to next git [h]unk' })
+    map('n', '[h', function() gitsigns.nav_hunk 'prev' end, { desc = 'Jump to previous git [h]unk' })
+    map('n', ']H', function() gitsigns.nav_hunk 'last' end, { desc = 'Jump to last git [H]unk' })
+    map('n', '[H', function() gitsigns.nav_hunk 'first' end, { desc = 'Jump to first git [H]unk' })
+
     -- Actions
     -- visual mode
     map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'git [s]tage hunk' })
