@@ -36,6 +36,7 @@ abbr --add lg lazygit
 abbr --add ll 'eza -1'
 abbr --add ls eza
 abbr --add oc opencode
+abbr --add occ 'opencode -c'
 abbr --add p pnpm
 abbr --add python python3
 abbr --add tree 'eza --tree --git-ignore'
