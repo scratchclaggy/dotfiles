@@ -7,3 +7,6 @@ vim.api.nvim_create_user_command('PackClean', function()
 	end
 	vim.pack.del(orphans)
 end, { desc = 'Remove plugins no longer in vim.pack.add()' })
+
+vim.api.nvim_create_user_command('CopyFilepath', function() vim.cmd "let @+ = expand('%')" end,
+	{ desc = 'Copy current file path to clipboard' })
