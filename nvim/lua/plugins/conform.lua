@@ -4,9 +4,20 @@ require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
     local enabled_filetypes = {
+      css = true,
+      graphql = true,
+      grit = true,
+      gritql = true,
+      html = true,
+      javascript = true,
+      javascriptreact = true,
+      json = true,
+      jsonc = true,
       lua = true,
       markdown = true,
+      svg = true,
       typescript = true,
+      typescriptreact = true,
     }
     if enabled_filetypes[vim.bo[bufnr].filetype] then
       return { timeout_ms = 500 }
@@ -18,9 +29,20 @@ require('conform').setup {
     lsp_format = 'fallback',
   },
   formatters_by_ft = {
+    css = { 'biome' },
+    graphql = { 'biome' },
+    grit = { 'biome' },
+    gritql = { 'biome' },
+    html = { 'biome' },
+    javascript = { 'biome' },
+    javascriptreact = { 'biome' },
+    json = { 'biome' },
+    jsonc = { 'biome' },
     lua = { 'stylua' },
-    markdown = { 'biome' },
+    markdown = { 'oxfmt' },
+    svg = { 'biome' },
     typescript = { 'biome' },
+    typescriptreact = { 'biome' },
   },
 }
 
