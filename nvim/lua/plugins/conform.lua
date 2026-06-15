@@ -18,9 +18,9 @@ require('conform').setup {
     lsp_format = 'fallback',
   },
   formatters_by_ft = {
-    { lua = 'stylua' },
-    { markdown = 'markdownlint' },
-    { typescript = { 'oxfmt', 'biome' } },
+    lua = { 'stylua' },
+    markdown = { 'biome' },
+    typescript = { 'biome' },
   },
 }
 
