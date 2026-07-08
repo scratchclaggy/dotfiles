@@ -37,17 +37,44 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     if client and client:supports_method('textDocument/inlayHint', event.buf) then
-      map('yoh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end,
-        'Toggle Inlay [H]ints')
+      map('yoh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, 'Toggle Inlay [H]ints')
     end
   end,
 })
 
 ---@type table<string, vim.lsp.Config>
+local ignored_tsgo_diagnostic_codes = { 6133 }
+local ignored_tsgo_diagnostic_code_lookup = {}
+for _, code in ipairs(ignored_tsgo_diagnostic_codes) do
+  ignored_tsgo_diagnostic_code_lookup[code] = true
+end
+
 local servers = {
-  biome = {},
+  biome = {
+    -- HACK: prevents biome from duplicating go-to-definition
+    on_attach = function(client)
+      local supports_method = client.supports_method
+
+      client.supports_method = function(self, method, bufnr)
+        if method == 'textDocument/definition' then return false end
+
+        return supports_method(self, method, bufnr)
+      end
+    end,
+  },
   stylua = {},
-  tsgo = {},
+  tsgo = {
+    handlers = {
+      -- HACK: prevents tsgo from surfacing diagnostics (that are duplicated by biome or other linters)
+      ['textDocument/diagnostic'] = function(err, result, ctx)
+        if result and result.items then
+          result.items = vim.tbl_filter(function(diagnostic) return not ignored_tsgo_diagnostic_code_lookup[diagnostic.code] end, result.items)
+        end
+
+        return vim.lsp.diagnostic.on_diagnostic(err, result, ctx)
+      end,
+    },
+  },
   lua_ls = {},
 }
 
