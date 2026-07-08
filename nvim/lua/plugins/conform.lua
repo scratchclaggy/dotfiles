@@ -28,6 +28,11 @@ require('conform').setup {
   default_format_opts = {
     lsp_format = 'fallback',
   },
+  formatters = {
+    prettier = {
+      prepend_args = { '--prose-wrap', 'always' },
+    },
+  },
   formatters_by_ft = {
     css = { 'biome' },
     graphql = { 'biome' },
@@ -39,7 +44,7 @@ require('conform').setup {
     json = { 'biome' },
     jsonc = { 'biome' },
     lua = { 'stylua' },
-    markdown = { 'oxfmt' },
+    markdown = { 'prettier' },
     svg = { 'biome' },
     typescript = { 'biome' },
     typescriptreact = { 'biome' },
