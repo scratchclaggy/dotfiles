@@ -1,12 +1,12 @@
 vim.api.nvim_create_user_command('PackClean', function()
-	local orphans = vim.iter(vim.pack.get()):filter(function(x) return not x.active end):map(function(x) return x
-		.spec.name end):totable()
-	if #orphans == 0 then
-		vim.notify('No orphaned plugins to remove', vim.log.levels.INFO)
-		return
-	end
-	vim.pack.del(orphans)
+  local orphans = vim.iter(vim.pack.get()):filter(function(x) return not x.active end):map(function(x) return x.spec.name end):totable()
+  if #orphans == 0 then
+    vim.notify('No orphaned plugins to remove', vim.log.levels.INFO)
+    return
+  end
+  vim.pack.del(orphans)
 end, { desc = 'Remove plugins no longer in vim.pack.add()' })
 
-vim.api.nvim_create_user_command('CopyFilepath', function() vim.cmd "let @+ = expand('%')" end,
-	{ desc = 'Copy current file path to clipboard' })
+vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, { desc = 'Update plugins managed by vim.pack' })
+
+vim.api.nvim_create_user_command('CopyFilepath', function() vim.cmd "let @+ = expand('%')" end, { desc = 'Copy current file path to clipboard' })

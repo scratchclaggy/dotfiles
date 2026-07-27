@@ -15,6 +15,7 @@ require('conform').setup {
       jsonc = true,
       lua = true,
       markdown = true,
+      python = true,
       svg = true,
       typescript = true,
       typescriptreact = true,

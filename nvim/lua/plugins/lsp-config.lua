@@ -62,6 +62,7 @@ local servers = {
       end
     end,
   },
+  ruff = {},
   stylua = {},
   tsgo = {
     handlers = {

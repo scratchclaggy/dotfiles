@@ -26,7 +26,6 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 -- Unimpaired inspired keymaps
-vim.keymap.set('n', 'yod', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end,
-	{ desc = 'Toggle [D]iagnostics' })
+vim.keymap.set('n', 'yod', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, { desc = 'Toggle [D]iagnostics' })
 vim.keymap.set('n', 'yow', function() vim.wo.wrap = not vim.wo.wrap end, { desc = 'Toggle line [W]rap' })
 vim.keymap.set('n', 'yos', function() vim.wo.spell = not vim.wo.spell end, { desc = 'Toggle [S]pell check' })

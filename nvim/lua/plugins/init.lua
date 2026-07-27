@@ -18,6 +18,7 @@ local plugins = {
   'substitute',
   'surround',
   'todo-comments',
+  'tree-sitter-language-injection',
 }
 
 for _, plugin in ipairs(plugins) do
