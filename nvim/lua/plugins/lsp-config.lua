@@ -42,12 +42,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
----@type table<string, vim.lsp.Config>
-local ignored_tsgo_diagnostic_codes = { 6133 }
-local ignored_tsgo_diagnostic_code_lookup = {}
-for _, code in ipairs(ignored_tsgo_diagnostic_codes) do
-  ignored_tsgo_diagnostic_code_lookup[code] = true
-end
+local ignored_tsc_diagnostic_codes = { [6133] = true }
 
 local servers = {
   biome = {
@@ -64,12 +59,12 @@ local servers = {
   },
   ruff = {},
   stylua = {},
-  tsgo = {
+  tsc = {
     handlers = {
-      -- HACK: prevents tsgo from surfacing diagnostics (that are duplicated by biome or other linters)
+      -- Prevent tsc from surfacing diagnostics duplicated by biome or other linters.
       ['textDocument/diagnostic'] = function(err, result, ctx)
         if result and result.items then
-          result.items = vim.tbl_filter(function(diagnostic) return not ignored_tsgo_diagnostic_code_lookup[diagnostic.code] end, result.items)
+          result.items = vim.tbl_filter(function(diagnostic) return not ignored_tsc_diagnostic_codes[diagnostic.code] end, result.items)
         end
 
         return vim.lsp.diagnostic.on_diagnostic(err, result, ctx)
