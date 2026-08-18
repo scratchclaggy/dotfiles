@@ -14,6 +14,7 @@ local plugins = {
   'guess-indent',
   'indent-blankline',
   'lazydev',
+  'lualine',
   'oil',
   'substitute',
   'surround',
