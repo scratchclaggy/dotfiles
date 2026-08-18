@@ -88,6 +88,10 @@ vim.pack.add {
 
 require('mason').setup {}
 
+require('mason-lspconfig').setup {
+  automatic_enable = false,
+}
+
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {})
 
